@@ -1,13 +1,13 @@
 # Marvel_Project_1
 Database for users to learn more about the Marvel Universe.
 
-#User Story
+## User Story
 
 AS A user
 I WANT to view a Marvel database
 SO THAT I can learn more about the Marvel Universe and buy collectibles
 
-#Acceptance Criteria
+## Acceptance Criteria
 
 GIVEN I need a database to house Marvel facts
 WHEN I load the page
