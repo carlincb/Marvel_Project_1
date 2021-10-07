@@ -1,3 +1,15 @@
 h1, p {
     font-family: Arial, sans-serif;
   }
+  body {
+      background-color: rgba(17, 17, 17, 0.897);
+  }
+  .card-content {
+      box-shadow: 10px 10px 15px rgb(252, 49, 49);
+  }
+  .box {
+      float: left;
+      width: 33.33%;
+      padding: 50px;
+  }
+ 
