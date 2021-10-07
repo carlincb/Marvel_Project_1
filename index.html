@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Band Template</title>
+    <title>Marvel data-base</title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <!-- Bulma Version 0.9.0-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=8356d225dc8c7fed3"></script>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -20,14 +21,12 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io"></a>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-                <span></span>
-                <span></span>
-                <span></span>
+                
             </div>
         </div>
 
         <div id="navbar" class="navbar-menu">
-            <div class="navbar-start">
+            <div class="navbar-start is-white">
                 <a class="navbar-item" href="https://bulma.io/">
                     Comics
                 </a>
@@ -60,7 +59,7 @@
 
         <container>
             <h1> Marvel Facts</h1>
-            <p id="cat-fact">Click the button below to view a Marvel fact!</p>
+            <p id="marvel-facts">Click the button below to view a Marvel fact!</p>
             <button class="button is-danger is-rounded">Fact</button>
     </form>
     <section class="hero">
@@ -173,7 +172,7 @@
     </div>
     </article>
     </div>
-    <section class="section">
+    <!--<section class="section">
         <div class="container has-text-centered">
             <h2 class="title">Live Links</h2>
 
@@ -189,117 +188,9 @@
                         <a class="button">Buy Tickets</a>
                     </article>
                 </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-            </div>
-
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <figure class="image">
-                            <img
-                                src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                        </figure>
-                        <p class="title">New York</p>
-                        <p class="subtitle">Fri 27 Nov 2016</p>
-                        <a class="button">Buy Tickets</a>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
+    </section>-->
 
 
-    </a>
-    </p>
-    </div>
-    </div>
     </footer>
     <script src="../js/bulma.js"></script>
     <script src="./assets/js/script.js"></script>
