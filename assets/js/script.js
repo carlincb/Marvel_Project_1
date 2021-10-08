@@ -1,5 +1,6 @@
 categoryContainerEl = document.querySelector("#category-container");
 comicContainerEl = document.querySelector("#comic-container");
+mainBodyEls = document.querySelectorAll(".main-content");
 
 $("#search-container").on("click", ".cardBtn", function (event) {
   event.preventDefault();
@@ -17,26 +18,35 @@ var hash = ts + privateKey + publicKey;
 var md5Hash = md5(hash);
 console.log(md5Hash);
 
-let currentURL =
+let comicURL =
   "http://gateway.marvel.com/v1/public/comics?ts=" +
   ts +
   "&apikey=" +
   publicKey +
   "&hash=" +
   md5Hash;
-console.log(currentURL);
+console.log(comicURL);
+
+let characterURL =
+  "http://gateway.marvel.com/v1/public/characters?ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
 
 // look at homework five for creating a dynamically loading page (create a separate js file)
 // create a for loop to grab everything that we want
 
 function getComicData() {
-  fetch(currentURL)
+  fetch(comicURL)
     .then((response) => response.json())
     .then(function (data) {
       console.log(data);
+      $('.main-content').empty();
       var comicCreators = [];
 
-      for (var i = 0; i < data.data.results.length; i++) {
+      for (let i = 0; i < data.data.results.length; i++) {
         var comics = data.data.results[i];
         var creatorNames = [];
         var comicImg = [];
@@ -88,6 +98,44 @@ function getComicData() {
     });
 }
 
+function getCharacterData() {
+  fetch(characterURL)
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data);
+      $('.main-content').empty();
+      var comicCharacters = [];
+
+      for (let i =0; i < data.data.results.length; i++) {
+          var characters = data.data.results[i];
+      
+          comicCharacters.push({
+            name: characters.name,
+            description: characters.description,
+            imgpath: characters.thumbnail.path,
+          })};
+          for (let k = 0; k < comicCharacters.length; k++) {
+            var imgString = comicCharacters[k].imgpath + ".jpg";
+            var characterImg = document.createElement('img');
+            characterImg.setAttribute('src', imgString);
+            characterImg.setAttribute('alt', "Image not avalailable");
+            var nameEl = document.createElement('h2');
+            nameEl.textContent = "Character Name: " + comicCharacters[k].name;
+            // var idEl = document.createElement('h4');
+            // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
+            var descriptionEl = document.createElement('h4');
+            descriptionEl.textContent = "Description: " + comicCharacters[k].description;
+            var characterCardEl = document.createElement('div');
+            characterCardEl.classList.add('box');
+            characterCardEl.append(characterImg, nameEl, descriptionEl);
+            comicContainerEl.append(characterCardEl);
+            comicContainerEl.classList.add('media-content', 'content');
+          };
+
+    
+      
+    })};
+  
 // function getCreator(input) {
 //   var data = input;
 //   console.log(data);
