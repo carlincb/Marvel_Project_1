@@ -131,30 +131,42 @@ function getCharacterData() {
                     name: characters.name,
                     description: characters.description,
                     imgpath: characters.thumbnail.path,
-                })
-            };
-            for (let k = 0; k < comicCharacters.length; k++) {
-                var imgString = comicCharacters[k].imgpath + ".jpg";
-                var characterImg = document.createElement('img');
-                characterImg.setAttribute('src', imgString);
-                characterImg.setAttribute('alt', "Image not avalailable");
-                var nameEl = document.createElement('h2');
-                nameEl.textContent = "Character Name: " + comicCharacters[k].name;
-                // var idEl = document.createElement('h4');
-                // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
-                var descriptionEl = document.createElement('h4');
-                descriptionEl.textContent = "Description: " + comicCharacters[k].description;
-                var characterCardEl = document.createElement('div');
-                characterCardEl.classList.add('box');
-                characterCardEl.append(characterImg, nameEl, descriptionEl);
-                comicContainerEl.append(characterCardEl);
-                comicContainerEl.classList.add('media-content', 'content');
-            };
-
-
-
+                titleURL: characters.urls[0].url,
         })
-};
+      };
+      for (let k = 0; k < comicCharacters.length; k++) {
+        var imgString = comicCharacters[k].imgpath + ".jpg";
+        // var characterImg = document.createElement('img');
+        // characterImg.setAttribute('src', imgString);
+        // characterImg.setAttribute('alt', "Image not avalailable");
+
+        // var nameEl = document.createElement('h2');
+        // nameEl.textContent = "Character Name: " + comicCharacters[k].name;
+        // // var idEl = document.createElement('h4');
+        // // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
+        // var descriptionEl = document.createElement('h4');
+        // descriptionEl.textContent = "Description: " + comicCharacters[k].description;
+        // var characterCardEl = document.createElement('div');
+        // characterCardEl.classList.add('box');
+        // characterCardEl.append(characterImg, nameEl, descriptionEl);
+        // comicContainerEl.append(characterCardEl);
+        // comicContainerEl.classList.add('media-content', 'content');
+        // console.log(comicCharacters[k].titleURL);
+        var description = comicCharacters[k].description;
+        jQueryComicContainer.append(`
+        <a href="${comicCharacters[k].titleURL}">
+        <div class="box">
+        <div class="media-content content">
+        <img src="${imgString}" alt="Image not available"/>
+        <h2>Character Name: ${comicCharacters[k].name}</h2>
+        <h4 class>Description: ${description ? description : "Unavailable"}</h4>
+        </div>
+        </div>
+        </a>
+        `)
+      };
+
+}
 
 // function getCreator(input) {
 //   var data = input;
