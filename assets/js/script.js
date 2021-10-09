@@ -15,7 +15,7 @@ $(".characters-search").on("click", function () {
   getCharacterData();
 });
 $(".creators-search").on("click", function () {
-  getCharacterData();
+  getCreatorData();
 });
 
 $("#search-container").on("click", ".cardBtn", function (event) {
@@ -59,7 +59,9 @@ function getComicData() {
         .then((response) => response.json())
         .then(function (data) {
             console.log(data);
-            $('.main-content').empty();
+            $('.main-content').hide();
+            jQueryComicContainer.append(`
+            <h1>Comics</h1>`);
             var comicCreators = [];
 
             for (let i = 0; i < data.data.results.length; i++) {
@@ -119,7 +121,7 @@ function getCharacterData() {
         .then((response) => response.json())
         .then(function (data) {
             console.log(data);
-            $('.main-content').empty();
+            $('.main-content').hide();
             var comicCharacters = [];
 
             for (let i = 0; i < data.data.results.length; i++) {
