@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=8356d225dc8c7fed3"></script>
-    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
@@ -49,7 +52,7 @@
         </div>
         </div>
     </nav>
-    <form class="box">
+    <form class="box main-content">
         <div class="field">
             <label class="label">Search for collectibles</label>
             <div class="control">
@@ -62,7 +65,7 @@
             <p id="marvel-facts">Click the button below to view a Marvel fact!</p>
             <button class="button is-danger is-rounded">Fact</button>
     </form>
-    <section class="hero">
+    <section class="hero main-content">
         <figure class="image">
             <img src="">
         </figure>
@@ -70,9 +73,9 @@
     </container>
 
 
-    <div class="columns is-centered" style="padding: 2rem">
+    <div class="columns is-centered main-content" id="category-container" style="padding: 2rem">
         <div class="column">
-            <div class="card">
+            <div class="card cardBtn">
                 <div class="card-image">
                     <figure class="image is-2by1">
                         <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/agentx01.jpg"
@@ -136,12 +139,29 @@
     </div>
     </div>
     </section>
+    <div class="box main-content">
         <article class="media">
             <div class="media-left">
                 <a href="https://carlincb.github.io/Marvel_Quiz/" target="_blank">
                 <figure id="Marvel-Quiz-Image">
                     <img src="assets/images/MainPage.png" alt="Image of Marvel Quiz">
                 </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>Marvel Quiz</strong>
+                        <br>
+                        Are you smarter than Professor X? Prove your marvelous smarts through out quiz.
+                    </p>
+                </div>
+            </div>
+    </div>
+    <div id="comic-container"></div>
+    </article>
+    </div>
+    </footer>
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
                 </a>
             </div>
         </article>
