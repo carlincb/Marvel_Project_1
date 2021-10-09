@@ -205,9 +205,6 @@ var showFact = document.getElementById("show-fact");
 
 var factNumber;
 
-function randomFact() {
-    return CatFacts[factNumber];
-}
 
 showFact.addEventListener("click", function () {
     factNumber = Math.floor(Math.random() * 5);
