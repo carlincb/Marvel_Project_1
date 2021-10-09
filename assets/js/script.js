@@ -2,6 +2,22 @@ categoryContainerEl = document.querySelector("#category-container");
 comicContainerEl = document.querySelector("#comic-container");
 mainBodyEls = document.querySelectorAll(".main-content");
 
+
+var comicsBtn = document.querySelector("#comics-search");
+var characterBtn = document.querySelector(".characters-search");
+var creatorsBtn = document.querySelector(".creators-search");
+
+
+$(".comics-search").on("click", function () {
+  getComicData();
+});
+$(".characters-search").on("click", function () {
+  getCharacterData();
+});
+$(".creators-search").on("click", function () {
+  getCharacterData();
+});
+
 $("#search-container").on("click", ".cardBtn", function (event) {
     event.preventDefault();
     console.log(checked);
