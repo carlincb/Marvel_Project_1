@@ -11,10 +11,8 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=8356d225dc8c7fed3"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -30,15 +28,15 @@
 
         <div id="navbar" class="navbar-menu">
             <div class="navbar-start is-white">
-                <a class="navbar-item" href="https://bulma.io/">
+                <div class="comics-search">
                     Comics
-                </a>
-                <a class="navbar-item" href="https://bulma.io/">
+                </div>
+                <div class="characters-search">
                     Characters
-                </a>
-                <a class="navbar-item" href="https://bulma.io/">
+                </div>
+                <div class="creators-search">
                     Creators
-                </a>
+                </div>
             </div>
         </div>
 
@@ -79,12 +77,12 @@
                 <div class="card-image">
                     <figure class="image is-2by1">
                         <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/agentx01.jpg"
-                            alt="Placeholder image">
+                            alt="Placeholder image" class="comics-search">
                     </figure>
                 </div>
                 <div class="card-content">
                     <div class="media">
-                        <div class="media-content">
+                        <div id=comics-search class="media-content">
                             <p class="title is-4">Comics</p>
                         </div>
                     </div>
@@ -99,7 +97,7 @@
                 <div class="card-image">
                     <figure class="image is-2by1">
                         <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/037smm_com_crd_01.jpg"
-                            alt="Placeholder image">
+                            alt="Placeholder image" class="creators-search">
                     </figure>
                 </div>
                 <div class="card-content">
@@ -119,7 +117,7 @@
                 <div class="card-image">
                     <figure class="image is-2by1">
                         <img src="https://i.annihil.us/u/prod/marvel/i/mg/8/b0/60cd0f5d4423a/standard_fantastic.jpg"
-                            alt="Placeholder image">
+                            alt="Placeholder image" class="creators-search">
                     </figure>
                 </div>
                 <div class="card-content">
@@ -143,9 +141,9 @@
         <article class="media">
             <div class="media-left">
                 <a href="https://carlincb.github.io/Marvel_Quiz/" target="_blank">
-                <figure id="Marvel-Quiz-Image">
-                    <img src="assets/images/MainPage.png" alt="Image of Marvel Quiz">
-                </figure>
+                    <figure id="Marvel-Quiz-Image">
+                        <img src="assets/images/MainPage.png" alt="Image of Marvel Quiz">
+                    </figure>
             </div>
             <div class="media-content">
                 <div class="content">
@@ -162,9 +160,9 @@
     </div>
     </footer>
     <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
-                </a>
-            </div>
-        </article>
+    </a>
+    </div>
+    </article>
     </div>
     <footer>Data provided by Marvel. © 2014 Marvel</footer>
     <script src="../js/bulma.js"></script>
