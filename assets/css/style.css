@@ -1,15 +1,30 @@
+/* Default font-size set */
+html {
+    font-size: 62.5%;
+    }
+
 h1, p {
     font-family: Arial, sans-serif;
   }
   body {
+      font-size: 2rem;
       background-color: rgba(17, 17, 17, 0.897);
   }
   .card-content {
-      box-shadow: 10px 10px 15px rgb(252, 49, 49);
+      box-shadow: 1rem 1rem 1rem rgb(252, 49, 49);
   }
   .box {
       float: left;
       width: 33.33%;
       padding: 50px;
   }
- 
+
+ #Marvel-Quiz-Image {
+     opacity: .5;
+     float: center;
+     display: flex;
+     flex-wrap: wrap;
+     width: 50%;
+     height: auto;
+     box-shadow: 1rem 1rem 1rem rgb(252, 49, 49);
+ }     
