@@ -60,8 +60,8 @@ function getComicData() {
         .then(function (data) {
             console.log(data);
             $('.main-content').hide();
-            jQueryComicContainer.append(`
-            <h1>Comics</h1>`);
+            // jQueryComicContainer.append(`
+            // <h1>Comics</h1>`);
             var comicCreators = [];
 
             for (let i = 0; i < data.data.results.length; i++) {
