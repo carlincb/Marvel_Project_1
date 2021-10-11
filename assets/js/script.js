@@ -219,34 +219,46 @@ $("#previous").on("click", function () {
 
 const funFactArray = [
   {
-    fact: "Fact 1!",
+    fact: "In the Norse Myths Thor is not blond at all but red headed with red eyes!",
   },
   {
-    fact: "Fact 2!",
+    fact: "The theme tune of the 1967 cartoon show Spider-Man has since become the web-slinger’s official motif including a fully orchestrated version for the MCU movies.",
   },
   {
-    fact: "Fact 3!",
+    fact: "Wolverine’s codename ‘Weapon X’ really means ‘Weapon 10’ and ‘Weapon 1’ is none other than… Captain America!",
   },
   {
-    fact: "Fact 4!",
+    fact: 'Article 5 of the 1954 Comics Code required that: "In every instance good shall triumph over evil and the criminal punished for his misdeeds”.',
   },
   {
-    fact: "Fact 5!",
+    fact: "The original leader of Alpha Flight, Canada’s team of superheroes, is Guardian.",
   },
   {
-    fact: "Fact 6!",
+    fact: "In 1975 Paul McCartney composed a Marvel based song for his band Wings entitled ‘Magneto and Titanium Man’.",
   },
   {
-    fact: "Fact 7!",
+    fact: "Until Fantastic Four #284 founding member of the team Susan Richards (nee Storm) was known not as the Invisible Woman but the Invisible Girl.",
   },
   {
-    fact: "Fact 8!",
+    fact: "Thor’s hammer Mjolnir  is made out of the mysterious ancient metal Uru.",
   },
   {
-    fact: "Fact 9!",
+    fact: 'The real name of Iron Man’s secretary "Pepper Potts" is Virginia.',
   },
   {
-    fact: "Fact 10!",
+    fact: "In the original comics Thanos was killed by Adam Warlock.",
+  },
+  {
+    fact: "The British superhero team Excalibur was led by Brian Braddock aka Captain Britain.",
+  },
+  {
+    fact: "Daredevil's long lost mother, Maggie, had in fact become a nun. ",
+  },
+  {
+  fact: "The hero MoonKnight is the avatar of the Egyptian moon god Khonshu.",
+  },
+  {
+  fact: "Fact!",
   },
 ];
 
