@@ -1,30 +1,76 @@
 /* Default font-size set */
 html {
-    font-size: 62.5%;
-    }
+  font-size: 62.5%;
+  font-family: Arial, sans-serif;
+  background-color: rgba(17, 17, 17, 0.897);
+}
 
-h1, p {
-    font-family: Arial, sans-serif;
-  }
-  body {
-      font-size: 2rem;
-      background-color: rgba(17, 17, 17, 0.897);
-  }
-  .card-content {
-      box-shadow: 1rem 1rem 1rem rgb(252, 49, 49);
-  }
-  .box {
-      float: left;
-      width: 33.33%;
-      padding: 50px;
-  }
+body {
+  font-size: 2rem;
+}
 
- #Marvel-Quiz-Image {
-     opacity: .5;
-     float: center;
-     display: flex;
-     flex-wrap: wrap;
-     width: 50%;
-     height: auto;
-     box-shadow: 1rem 1rem 1rem rgb(252, 49, 49);
- }     
+main {
+  height: 95vh;
+}
+nav li {
+  padding: 1rem;
+}
+
+#h1a,
+#h1b,
+#h1c {
+  display: none;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5rem;
+  background-color: white;
+  opacity: 0.6;
+  font-weight: bold;
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.671);
+}
+
+.card-content {
+  box-shadow: 1rem 1rem 1rem rgb(252, 49, 49);
+}
+.box {
+  float: left;
+  width: 25%;
+  padding: 0.5rem;
+}
+.column {
+  float: right;
+  width: 75%;
+}
+#marvelQuizDiv {
+  margin-bottom: 10rem;
+  width: 75%;
+}
+
+#Marvel-Quiz-Image:hover {
+  opacity: 0.7;
+}
+.comics-search:hover {
+  opacity: 0.7;
+}
+.characters-search:hover {
+  opacity: 0.7;
+}
+.creators-search:hover {
+  opacity: 0.7;
+}
+#pages {
+  display: none;
+}
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10rem;
+  background-color: white;
+  opacity: 0.7;
+  color: rgba(0, 0, 0, 0.671);
+}
