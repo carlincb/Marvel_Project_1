@@ -1,108 +1,122 @@
 /* General framework for paper layout set. No margins or fonts by default. Default fonts set. */
 * {
-    margin: 0;
-    padding: 0;  
-    font-family: 'Amatic SC', cursive;
-    }
+  margin: 0;
+  padding: 0;
+  font-family: "Amatic SC", cursive;
+}
 /* Default size of font set. */
 html {
-    font-size: 62.5%;
-    }
+  font-size: 62.5%;
+}
 /* Background color of webpage set. */
 body {
-    background-color: rgb(246, 249, 252);
-    background-image: url("../images/marvelbackground.jpg");
-    }
+  background-color: rgb(246, 249, 252);
+  background-image: url("../images/marvelbackground.jpg");
+}
 
 header {
-   display: flex;
-   justify-content: flex-end;
-   margin: 1.5rem;
-   color: rgb(122, 67, 4);
-   height: 5%;
-   width: 95%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.5rem;
+  color: rgb(122, 67, 4);
+  height: 5%;
+  width: 95%;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-size: 3.5rem;
-    margin: 1.5rem;
-    height: 95%;
-    width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 1.5rem;
+  height: 95%;
+  width: 95%;
 }
 
 nav {
-    font-size: 2rem;
-    font-weight: bolder;
-    background-color: rgba(218, 172, 136, 0.9);
-    border-radius: .5rem;
-    padding: .5rem;
+  font-size: 2rem;
+  font-weight: bolder;
+  background-color: rgba(218, 172, 136, 0.9);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+ul {
+  list-style: none;
 }
 
 h1 {
-    font-size: 5rem;
-    font-weight: bolder;
-    margin: 1rem;
-    color: rgb(12, 49, 66);
-    background-color: rgba(218, 172, 136, 0.9);
-    border-radius: .5rem;
-    padding: .5rem;
+  font-size: 5rem;
+  font-weight: bolder;
+  margin: 1rem;
+  color: rgb(12, 49, 66);
+  background-color: rgba(218, 172, 136, 0.9);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
-#spaceNeeded{
-    padding: .5rem;
+#spaceNeeded {
+  padding: 0.5rem;
 }
 
-p, h2 {
-    margin: 2rem;
-    color: white;
-    font-weight: bolder;
-    border-radius: .5rem;
-    padding: .5rem;
-    background-color: rgba(117, 190, 218, 0.9);
+p,
+h2 {
+  margin: 2rem;
+  color: white;
+  font-weight: bolder;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(117, 190, 218, 0.9);
 }
 
 span {
-    font-size: 2.5rem;
-    color: white;
-    border-radius: .5rem;
-    padding: .5rem;
+  font-size: 2.5rem;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
-#questionContainer, #question1, #question2, #question3, #question4, #finalScore, #highscores, #displayResultsDiv {
-    display: none;
+#questionContainer,
+#question1,
+#question2,
+#question3,
+#question4,
+#finalScore,
+#highscores,
+#displayResultsDiv {
+  display: none;
 }
 
 #answerFeedback {
-    border-top: .15rem solid black;
-    color:rgb(102, 94, 94);
-    font-style: italic;
+  border-top: 0.15rem solid black;
+  color: rgb(102, 94, 94);
+  font-style: italic;
 }
 
 button {
-    background-color: rgb(39, 145, 194);
-    border-radius: .5rem;
-    border: .2rem solid rgba(128, 128, 128, 0.432);
-    padding: 1rem;
-    margin: 1rem;
-    width:fit-content;
-    height:fit-content;
-    color: white;
+  background-color: rgb(39, 145, 194);
+  font-size: 3rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid rgba(128, 128, 128, 0.432);
+  padding: 1rem;
+  margin: 1rem;
+  width: fit-content;
+  height: fit-content;
+  color: white;
 }
 
 input {
-    border:solid rgb(255, 51, 0) .2rem;
-    border-radius: .5rem;
-    color:rgb(19, 150, 211);
+  border: solid rgb(255, 51, 0) 0.2rem;
+  font-size: 3rem;
+  border-radius: 0.5rem;
+  color: rgb(19, 150, 211);
 }
 
 button:hover {
-    opacity: .9;
+  opacity: 0.9;
 }
 
 label {
-    color: white;
+  color: white;
 }
