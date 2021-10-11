@@ -1,6 +1,6 @@
-categoryContainerEl = document.querySelector("#category-container");
-comicContainerEl = document.querySelector("#comic-container");
-mainBodyEls = document.querySelectorAll(".main-content");
+var categoryContainerEl = document.querySelector("#category-container");
+var comicContainerEl = document.querySelector("#comic-container");
+var mainBodyEls = document.querySelectorAll(".main-content");
 
 $("#search-container").on("click", ".cardBtn", function (event) {
   event.preventDefault();
@@ -19,7 +19,9 @@ var md5Hash = md5(hash);
 console.log(md5Hash);
 
 let comicURL =
-  "http://gateway.marvel.com/v1/public/comics?ts=" +
+  "http://gateway.marvel.com/v1/public/comics?" +
+
+  "ts=" +
   ts +
   "&apikey=" +
   publicKey +
@@ -37,9 +39,16 @@ let characterURL =
 
 // look at homework five for creating a dynamically loading page (create a separate js file)
 // create a for loop to grab everything that we want
+var offset = 0;
+localStorage.setItem("offset", offset);
 
-function getComicData() {
-  fetch(comicURL)
+function getComicData(URL) {
+  // var offset = 0;
+  var url = "http://gateway.marvel.com/v1/public/comics?";
+  // localStorage.setItem("offset", offset);
+  localStorage.setItem("url", url);
+console.log(URL)
+  fetch(URL)
     .then((response) => response.json())
     .then(function (data) {
       console.log(data);
@@ -99,6 +108,8 @@ function getComicData() {
 }
 
 function getCharacterData() {
+  // var offset = 0;
+  // localStorage.setItem("offset", offset);
   fetch(characterURL)
     .then((response) => response.json())
     .then(function (data) {
@@ -135,16 +146,38 @@ function getCharacterData() {
     
       
     })};
-  
-// function getCreator(input) {
-//   var data = input;
-//   console.log(data);
-//   for (var i=0; i < data.length; i++) {
-//     var creator = data.data.results[i].creators.items[0].name;
-//     console.log(creator);
-//   }
-// };
-// href on an anchor tag for the links in the directory
+
+// Need event listener for the next or previous button
+var nextBtn = document.querySelector("#next");
+var prevBtn = document.querySelector("#previous");
+
+$("#next").on('click', function() {
+  var offset = parseInt(localStorage.getItem("offset"));
+  offset += 20;
+  localStorage.setItem("offset", offset);
+  var newUrl =  localStorage.getItem("url") + "offset=" + offset + "&ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
+  console.log(newUrl);
+  getComicData(newUrl);
+});
+
+$("#previous").on('click', function() {
+  var offset = parseInt(localStorage.getItem("offset"));
+  offset -= 20;
+  localStorage.setItem("offset", offset);
+  var newUrl =  localStorage.getItem("url") + "offset=" + offset + "&ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
+  getComicData(newUrl);
+});
+
 
 const funFactArray = [
   {
@@ -194,27 +227,3 @@ function init() {
 }
 
 init();
-
-var factPlaceholder = document.getElementById("cat-fact");
-var showFact = document.getElementById("show-fact");
-
-/* Facts from this API: https://fact.birb.pw/api/v1/cat */
-
-var CatFacts = [
-  "The ancient Egyptians were the first to tame the cat (in about 3000 BC), and used them to control pests.",
-  "Cats share 95.6% of their DNA with tigers.",
-  "Cats are asleep for 70% of their lives.",
-  "Cat kidneys are super efficient, they can rehydrate by drinking seawater.",
-  "Kittens who are taken along on short, trouble-free car trips to town tend to make good passengers when they get older. They get used to the sounds and motions of traveling and make less connection between the car and the visits to the vet.",
-];
-
-var factNumber;
-
-function randomFact() {
-  return CatFacts[factNumber];
-}
-
-showFact.addEventListener("click", function () {
-  factNumber = Math.floor(Math.random() * 5);
-  factPlaceholder.textContent = randomFact();
-});
