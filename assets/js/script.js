@@ -2,9 +2,25 @@ var categoryContainerEl = document.querySelector("#category-container");
 var comicContainerEl = document.querySelector("#comic-container");
 var mainBodyEls = document.querySelectorAll(".main-content");
 
+
+var comicsBtn = document.querySelector("#comics-search");
+var characterBtn = document.querySelector(".characters-search");
+var creatorsBtn = document.querySelector(".creators-search");
+
+
+$(".comics-search").on("click", function () {
+  getComicData();
+});
+$(".characters-search").on("click", function () {
+  getCharacterData();
+});
+$(".creators-search").on("click", function () {
+  getCreatorData();
+});
+
 $("#search-container").on("click", ".cardBtn", function (event) {
-  event.preventDefault();
-  console.log(checked);
+    event.preventDefault();
+    console.log(checked);
 });
 
 var publicKey = "9a86508c139659fd39ae10d9e08ad609";
@@ -19,6 +35,7 @@ var md5Hash = md5(hash);
 console.log(md5Hash);
 
 let comicURL =
+
   "http://gateway.marvel.com/v1/public/comics?" +
 
   "ts=" +
@@ -27,18 +44,20 @@ let comicURL =
   publicKey +
   "&hash=" +
   md5Hash;
+
 console.log(comicURL);
 
 let characterURL =
-  "http://gateway.marvel.com/v1/public/characters?ts=" +
-  ts +
-  "&apikey=" +
-  publicKey +
-  "&hash=" +
-  md5Hash;
+    "http://gateway.marvel.com/v1/public/characters?ts=" +
+    ts +
+    "&apikey=" +
+    publicKey +
+    "&hash=" +
+    md5Hash;
 
 // look at homework five for creating a dynamically loading page (create a separate js file)
 // create a for loop to grab everything that we want
+
 var offset = 0;
 localStorage.setItem("offset", offset);
 
@@ -80,34 +99,10 @@ console.log(URL)
           creators: creatorNames,
           imgpath: comicImg,
         });
-      }
-      for (let k = 0; k < comicCreators.length; k++) {
-        var imgString = comicCreators[k].imgpath[0] + ".jpg";
-        console.log(imgString);
-        var comicImg = document.createElement('img');
-        comicImg.setAttribute('src', imgString);
-        comicImg.setAttribute('alt', "Image not avalailable");
-        var comicEl = document.createElement('h2');
-        comicEl.textContent = "Comic Title: " + comicCreators[k].title;
-        var idEl = document.createElement('h4');
-        idEl.textContent = "Comic ID#: " + comicCreators[k].id;
-        var creatorEl = document.createElement('h4');
-        creatorEl.textContent = "Creator(s): " + comicCreators[k].creators;
-        var comicCardEl = document.createElement('div');
-        comicCardEl.classList.add('box');
-        comicCardEl.append(comicImg, comicEl, idEl, creatorEl);
-        comicContainerEl.append(comicCardEl);
-        comicContainerEl.classList.add('media-content', 'content');
-      }
-
-    
-
-      console.log("-------creator -------------");
-      console.log(comicCreators);
-    });
 }
 
 function getCharacterData() {
+
   // var offset = 0;
   // localStorage.setItem("offset", offset);
   fetch(characterURL)
@@ -178,52 +173,52 @@ $("#previous").on('click', function() {
   getComicData(newUrl);
 });
 
-
 const funFactArray = [
-  {
-    fact: "Fact 1!",
-  },
-  {
-    fact: "Fact 2!",
-  },
-  {
-    fact: "Fact 3!",
-  },
-  {
-    fact: "Fact 4!",
-  },
-  {
-    fact: "Fact 5!",
-  },
-  {
-    fact: "Fact 6!",
-  },
-  {
-    fact: "Fact 7!",
-  },
-  {
-    fact: "Fact 8!",
-  },
-  {
-    fact: "Fact 9!",
-  },
-  {
-    fact: "Fact 10!",
-  },
+    {
+        fact: "Fact 1!",
+    },
+    {
+        fact: "Fact 2!",
+    },
+    {
+        fact: "Fact 3!",
+    },
+    {
+        fact: "Fact 4!",
+    },
+    {
+        fact: "Fact 5!",
+    },
+    {
+        fact: "Fact 6!",
+    },
+    {
+        fact: "Fact 7!",
+    },
+    {
+        fact: "Fact 8!",
+    },
+    {
+        fact: "Fact 9!",
+    },
+    {
+        fact: "Fact 10!",
+    },
 ];
 
 function RandomFact() {
-  $("fact-container").empty();
-  var displayedFact =
-    funFactArray[Math.floor(Math.random() * funFactArray.length)].fact;
-  console.log(displayedFact);
-  var h3El = document.createElement("h3");
-  h3El.textContent = displayedFact;
-  factContainerEl.appendChild(h3El);
+    $("fact-container").empty();
+    var displayedFact =
+        funFactArray[Math.floor(Math.random() * funFactArray.length)].fact;
+    console.log(displayedFact);
+    var h3El = document.createElement("h3");
+    h3El.textContent = displayedFact;
+    factContainerEl.appendChild(h3El);
 }
 
 function init() {
-  RandomFact();
+    RandomFact();
 }
 
 init();
+

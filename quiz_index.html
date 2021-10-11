@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Added title -->
+    <title>Marvel Quiz</title>
+    <!-- Google Fonts link. -->
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Calligraffitti&display=swap" rel="stylesheet">
+    <!-- Added CSS link. -->
+    <link rel="stylesheet" href="assets/css/quiz_style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Show Off Your Skills!</li>
+                <li id="spaceNeeded">Time:
+                    <span id="countdown"></span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Marvel Quiz Challenge</h1>
+        <section id="mainPage">
+            <p>Try to answer the following Marvel questions within the time limit.<br>
+                <span>Incorrect answers will penalize your scoretime by ten seconds!</span>
+            </p>
+            <button id="startQuizButton">Start Quiz</button>
+        </section>
+        <section id="questionContainer">
+            <div id="question1">
+                <h2>Which Marvel hero first appeared in Amazing Fantasy #15?</h2>
+                <ul>
+                    <button id="option1A">Spider-Man</button>
+                    <button id="option1B">Batman</button>
+                    <button id="option1C">Iron Man</button>
+                    <button id="option1D">Thor</button>
+                </ul>
+            </div>
+            <div id="question2">
+                <h2>What was the original color of the Incredible Hulk?</h2>
+                <ul>
+                    <button id="option2A">Green</button>
+                    <button id="option2B">Red</button>
+                    <button id="option2C">Gray</button>
+                    <button id="option2D">Blue</button>
+                </ul>
+            </div>
+            <div id="question3">
+                <h2>Which member of the Fantastic Four was played by the same actor as Captain America in the MCU?</h2>
+                <ul>
+                    <button id="option3A">The Invisible Woman</button>
+                    <button id="option3B">The Human Torch</button>
+                    <button id="option3C">Mr. Fantastic</button>
+                    <button id="option3D">The Thing</button>
+                </ul>
+            </div>
+            <div id="question4">
+                <h2>Who is Weapon X?</h2>
+                <ul>
+                    <button id="option4A">Shadow Cat</button>
+                    <button id="option4B">Captain America</button>
+                    <button id="option4C">Professor X</button>
+                    <button id="option4D">Wolverine</button>
+                </ul>
+            </div>
+            <!-- Added p tag so that JavaScript file can dynamically modify feedback depending on whether the answer was correct or not. -->
+            <p id="answerFeedback"></p>
+        </section>
+        <section id="finalScore">
+            <h2>All done!</h2>
+            <form action="assets/js/script.js">
+                <label for="initials">Enter Initials:</label>
+                <input type="text" id="initials" name:="initials"/>
+            </form>
+            <button id="submitButton">Submit</button>
+        </section>
+        <section id="highscores">
+            <h2>Highscores</h2>
+            <ul>
+                <button id="goBackButton">Go Back</button>
+                <button id="clearHighscores">Clear Highscores</button>
+            </ul>
+            <!-- Added div tag to house p tag from JavaScript file displaying highscores when "Submit" button is clicked -->
+            <div id="highscoreDiv"></div>
+        </section>
+    </main>
+    <!-- Added javascript link. -->
+    <script src="assets/js/quiz_script.js"></script>
+</body>
+</html>
