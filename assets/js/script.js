@@ -6,14 +6,25 @@ var comicsBtn = document.querySelector(".comics-search");
 var characterBtn = document.querySelector(".characters-search");
 var creatorsBtn = document.querySelector(".creators-search");
 
+var pages = document.getElementById("pages");
+var h1a = document.getElementById("h1a");
+var h1b = document.getElementById("h1b");
+var h1c = document.getElementById("h1a");
+
 $(".comics-search").on("click", function () {
   getComicData(comicURL);
+  h1a.style.display = "block";
+  pages.style.display = "block";
 });
 $(".characters-search").on("click", function () {
   getCharacterData(characterURL);
+  h1b.style.display = "block";
+  pages.style.display = "block";
 });
 // $(".creators-search").on("click", function () {
 //   getCreatorData();
+//h1c.style.display = "block";
+//pages.style.display = "block";
 // });
 
 var publicKey = "9a86508c139659fd39ae10d9e08ad609";

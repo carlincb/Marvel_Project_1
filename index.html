@@ -15,68 +15,50 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
-<body>
+<body class="is-fullheight-100vh">
     <nav class="navbar is-dark">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io"></a>
-            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-
-            </div>
-        </div>
-
-        <div id="navbar" class="navbar-menu">
-            <div class="navbar-start is-white">
-                <div class="comics-search">
-                    Comics
-                </div>
-                <div class="characters-search">
-                    Characters
-                </div>
-                <div class="creators-search">
-                    Creators
-                </div>
-            </div>
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="field">
-                    <div class="control">
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+        <ul class="navbar-start">
+            <li class="comics-search">
+                Comics 
+            </li>
+            <li class="characters-search">
+                Characters 
+            </li>
+            <li class="creators-search">
+                Creators 
+            </li>          
+        </ul>
     </nav>
-    <form class="box main-content">
+<main>
+    <header>
+        <h1 id="h1a">
+            Comics
+        </h1>
+        <h1 id="h1b">
+            Characters
+        </h1>
+        <h1 id="h1c">
+            Creators
+        </h1>
+    </header>
+    <form class="box main-content" style="padding: 2rem">
         <div class="field">
             <label class="label">Search for collectibles</label>
             <div class="control">
                 <div class="gcse-search"></div>
             </div>
-        </div>
-
-        <container>
             <h1> Marvel Facts</h1>
             <p id="marvel-facts">Click the button below to view a Marvel fact!</p>
             <button class="button is-danger is-rounded">Fact</button>
+        </div>
     </form>
-    <section class="hero main-content">
-        <figure class="image">
-            <img src="">
-        </figure>
-    </section>
-    </container>
-
-
-    <div class="columns is-centered main-content" id="category-container" style="padding: 2rem">
+    <section class="columns is-centered main-content" id="category-container" style="padding: 2rem">
         <div class="column">
-            <div class="card cardBtn">
+            <div class="card cardBtn comics-search">
                 <div class="card-image">
                     <figure class="image is-2by1">
                         <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/agentx01.jpg"
-                            alt="Placeholder image" class="comics-search">
+                            alt="Placeholder image">
                     </figure>
                 </div>
                 <div class="card-content">
@@ -85,18 +67,15 @@
                             <p class="title is-4">Comics</p>
                         </div>
                     </div>
-
-                    <div class="content">
-                    </div>
                 </div>
             </div>
         </div>
         <div class="column">
-            <div class="card">
+            <div class="card characters-search">
                 <div class="card-image">
                     <figure class="image is-2by1">
                         <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/037smm_com_crd_01.jpg"
-                            alt="Placeholder image" class="characters-search">
+                            alt="Placeholder image">
                     </figure>
                 </div>
                 <div class="card-content">
@@ -105,14 +84,11 @@
                             <p class="title is-4">Characters</p>
                         </div>
                     </div>
-
-                    <div class="content">
-                    </div>
                 </div>
             </div>
         </div>
         <div class="column">
-            <div class="card">
+            <div class="card creators-search">
                 <div class="card-image">
                     <figure class="image is-2by1">
                         <img src="https://i.annihil.us/u/prod/marvel/i/mg/8/b0/60cd0f5d4423a/standard_fantastic.jpg"
@@ -123,39 +99,34 @@
                     <div class="media">
                         <div class="media-content">
                             <p class="title is-4">Creators</p>
-
                         </div>
-                    </div>
-
-                    <div class="content">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
     </section>
-    <div class="box main-content">
-        <article class="media">
-            <div class="media-left">
+    <section class="column main-content" style="padding: 2rem" id="marvelQuizDiv">
+        <article class="card">
+            <div class="card-image">
                 <a href="quiz_index.html" target="_blank">
                     <figure id="Marvel-Quiz-Image">
                         <img src="assets/images/quizview.png" alt="Image of Marvel Quiz">
                     </figure>
             </div>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong>Marvel Quiz</strong>
-                        <br>
-                        Are you smarter than Professor X? Prove your marvelous smarts through out quiz.
-                    </p>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-2">Are you smarter than Professor X? Prove your marvelous smarts through our quiz!
+                        </p>
+                    </div>
                 </div>
             </div>
-    </div>
-    <div id="comic-container"></div>
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        </article>
+    </section>
+    <section id="comic-container"></section>
+</main>
+<footer>
+    <section class="pagination is-centered" id="pages" role="navigation" aria-label="pagination">
         <a class="pagination-previous" id="previous">Previous</a>
         <a class="pagination-next" id="next">Next page</a>
         <ul class="pagination-list">
@@ -167,13 +138,11 @@
           <li><span class="pagination-ellipsis">&hellip;</span></li>
           <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
         </ul>
-      </nav>
-    </div>
-    </footer>
+    </section>
+    <section class="is-centered">Data provided by Marvel. © 2014 Marvel</section>
+</footer>
     <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
-    <footer>Data provided by Marvel. © 2014 Marvel</footer>
     <script src="../js/bulma.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
-
 </html>
