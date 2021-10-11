@@ -1,6 +1,6 @@
-categoryContainerEl = document.querySelector("#category-container");
-comicContainerEl = document.querySelector("#comic-container");
-mainBodyEls = document.querySelectorAll(".main-content");
+var categoryContainerEl = document.querySelector("#category-container");
+var comicContainerEl = document.querySelector("#comic-container");
+var mainBodyEls = document.querySelectorAll(".main-content");
 
 
 var comicsBtn = document.querySelector("#comics-search");
@@ -35,12 +35,16 @@ var md5Hash = md5(hash);
 console.log(md5Hash);
 
 let comicURL =
-    "http://gateway.marvel.com/v1/public/comics?ts=" +
-    ts +
-    "&apikey=" +
-    publicKey +
-    "&hash=" +
-    md5Hash;
+
+  "http://gateway.marvel.com/v1/public/comics?" +
+
+  "ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
+
 console.log(comicURL);
 
 let characterURL =
@@ -54,129 +58,120 @@ let characterURL =
 // look at homework five for creating a dynamically loading page (create a separate js file)
 // create a for loop to grab everything that we want
 
-function getComicData() {
-    fetch(comicURL)
-        .then((response) => response.json())
-        .then(function (data) {
-            console.log(data);
-            $('.main-content').hide();
-            // jQueryComicContainer.append(`
-            // <h1>Comics</h1>`);
-            var comicCreators = [];
+var offset = 0;
+localStorage.setItem("offset", offset);
 
-            for (let i = 0; i < data.data.results.length; i++) {
-                var comics = data.data.results[i];
-                var creatorNames = [];
-                var comicImg = [];
-                var creators = comics.creators.items;
-                var img = comics.images;
-                console.log("comic #" + i + ": " + creators.length);
+function getComicData(URL) {
+  // var offset = 0;
+  var url = "http://gateway.marvel.com/v1/public/comics?";
+  // localStorage.setItem("offset", offset);
+  localStorage.setItem("url", url);
+console.log(URL)
+  fetch(URL)
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data);
+      $('.main-content').empty();
+      var comicCreators = [];
 
-                if (creators.length === 0) {
-                    // do something if there's no creators
-                } else {
-                    // go through all the creators, and do something
-                    for (let i = 0; i < creators.length; i++) {
-                        creatorNames.push(creators[i].name);
-                    }
-                    for (let i = 0; i < img.length; i++) {
-                        comicImg.push(img[i].path);
-                    }
-                }
-                comicCreators.push({
-                    id: comics.id,
-                    title: comics.title,
-                    creators: creatorNames,
-                    imgpath: comicImg,
-                });
-            }
-            for (let k = 0; k < comicCreators.length; k++) {
-                var imgString = comicCreators[k].imgpath[0] + ".jpg";
-                console.log(imgString);
-                var comicImg = document.createElement('img');
-                comicImg.setAttribute('src', imgString);
-                comicImg.setAttribute('alt', "Image not avalailable");
-                var comicEl = document.createElement('h2');
-                comicEl.textContent = "Comic Title: " + comicCreators[k].title;
-                var idEl = document.createElement('h4');
-                idEl.textContent = "Comic ID#: " + comicCreators[k].id;
-                var creatorEl = document.createElement('h4');
-                creatorEl.textContent = "Creator(s): " + comicCreators[k].creators;
-                var comicCardEl = document.createElement('div');
-                comicCardEl.classList.add('box');
-                comicCardEl.append(comicImg, comicEl, idEl, creatorEl);
-                comicContainerEl.append(comicCardEl);
-                comicContainerEl.classList.add('media-content', 'content');
-            }
+      for (let i = 0; i < data.data.results.length; i++) {
+        var comics = data.data.results[i];
+        var creatorNames = [];
+        var comicImg = [];
+        var creators = comics.creators.items;
+        var img = comics.images;
+        console.log("comic #" + i + ": " + creators.length);
 
-
-
-            console.log("-------creator -------------");
-            console.log(comicCreators);
+        if (creators.length === 0) {
+          // do something if there's no creators
+        } else {
+          // go through all the creators, and do something
+          for (let i = 0; i < creators.length; i++) {
+            creatorNames.push(creators[i].name);
+          }
+          for (let i = 0; i < img.length; i++) {
+            comicImg.push(img[i].path);
+          }
+        }
+        comicCreators.push({
+          id: comics.id,
+          title: comics.title,
+          creators: creatorNames,
+          imgpath: comicImg,
         });
 }
 
 function getCharacterData() {
-    fetch(characterURL)
-        .then((response) => response.json())
-        .then(function (data) {
-            console.log(data);
-            $('.main-content').hide();
-            var comicCharacters = [];
 
-            for (let i = 0; i < data.data.results.length; i++) {
-                var characters = data.data.results[i];
+  // var offset = 0;
+  // localStorage.setItem("offset", offset);
+  fetch(characterURL)
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data);
+      $('.main-content').empty();
+      var comicCharacters = [];
 
-                comicCharacters.push({
-                    name: characters.name,
-                    description: characters.description,
-                    imgpath: characters.thumbnail.path,
-                titleURL: characters.urls[0].url,
-        })
-      };
-      for (let k = 0; k < comicCharacters.length; k++) {
-        var imgString = comicCharacters[k].imgpath + ".jpg";
-        // var characterImg = document.createElement('img');
-        // characterImg.setAttribute('src', imgString);
-        // characterImg.setAttribute('alt', "Image not avalailable");
+      for (let i =0; i < data.data.results.length; i++) {
+          var characters = data.data.results[i];
+      
+          comicCharacters.push({
+            name: characters.name,
+            description: characters.description,
+            imgpath: characters.thumbnail.path,
+          })};
+          for (let k = 0; k < comicCharacters.length; k++) {
+            var imgString = comicCharacters[k].imgpath + ".jpg";
+            var characterImg = document.createElement('img');
+            characterImg.setAttribute('src', imgString);
+            characterImg.setAttribute('alt', "Image not avalailable");
+            var nameEl = document.createElement('h2');
+            nameEl.textContent = "Character Name: " + comicCharacters[k].name;
+            // var idEl = document.createElement('h4');
+            // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
+            var descriptionEl = document.createElement('h4');
+            descriptionEl.textContent = "Description: " + comicCharacters[k].description;
+            var characterCardEl = document.createElement('div');
+            characterCardEl.classList.add('box');
+            characterCardEl.append(characterImg, nameEl, descriptionEl);
+            comicContainerEl.append(characterCardEl);
+            comicContainerEl.classList.add('media-content', 'content');
+          };
 
-        // var nameEl = document.createElement('h2');
-        // nameEl.textContent = "Character Name: " + comicCharacters[k].name;
-        // // var idEl = document.createElement('h4');
-        // // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
-        // var descriptionEl = document.createElement('h4');
-        // descriptionEl.textContent = "Description: " + comicCharacters[k].description;
-        // var characterCardEl = document.createElement('div');
-        // characterCardEl.classList.add('box');
-        // characterCardEl.append(characterImg, nameEl, descriptionEl);
-        // comicContainerEl.append(characterCardEl);
-        // comicContainerEl.classList.add('media-content', 'content');
-        // console.log(comicCharacters[k].titleURL);
-        var description = comicCharacters[k].description;
-        jQueryComicContainer.append(`
-        <a href="${comicCharacters[k].titleURL}">
-        <div class="box">
-        <div class="media-content content">
-        <img src="${imgString}" alt="Image not available"/>
-        <h2>Character Name: ${comicCharacters[k].name}</h2>
-        <h4 class>Description: ${description ? description : "Unavailable"}</h4>
-        </div>
-        </div>
-        </a>
-        `)
-      };
+    
+      
+    })};
 
-}
+// Need event listener for the next or previous button
+var nextBtn = document.querySelector("#next");
+var prevBtn = document.querySelector("#previous");
 
-// function getCreator(input) {
-//   var data = input;
-//   console.log(data);
-//   for (var i=0; i < data.length; i++) {
-//     var creator = data.data.results[i].creators.items[0].name;
-//     console.log(creator);
-//   }
-// };
-// href on an anchor tag for the links in the directory
+$("#next").on('click', function() {
+  var offset = parseInt(localStorage.getItem("offset"));
+  offset += 20;
+  localStorage.setItem("offset", offset);
+  var newUrl =  localStorage.getItem("url") + "offset=" + offset + "&ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
+  console.log(newUrl);
+  getComicData(newUrl);
+});
+
+$("#previous").on('click', function() {
+  var offset = parseInt(localStorage.getItem("offset"));
+  offset -= 20;
+  localStorage.setItem("offset", offset);
+  var newUrl =  localStorage.getItem("url") + "offset=" + offset + "&ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
+  getComicData(newUrl);
+});
 
 const funFactArray = [
     {
@@ -227,16 +222,3 @@ function init() {
 
 init();
 
-var factPlaceholder = document.getElementById("cat-fact");
-var showFact = document.getElementById("show-fact");
-
-/* Facts from this API: https://fact.birb.pw/api/v1/cat */
-
-
-var factNumber;
-
-
-showFact.addEventListener("click", function () {
-    factNumber = Math.floor(Math.random() * 5);
-    factPlaceholder.textContent = randomFact();
-});
