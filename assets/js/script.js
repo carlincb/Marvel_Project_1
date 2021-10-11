@@ -16,11 +16,6 @@ $(".characters-search").on("click", function () {
 //   getCreatorData();
 // });
 
-$("#search-container").on("click", ".cardBtn", function (event) {
-  event.preventDefault();
-  console.log(checked);
-});
-
 var publicKey = "9a86508c139659fd39ae10d9e08ad609";
 var privateKey = "6c71587e6cb4343819fe479a9d6cb26e66e14af3";
 console.log(publicKey);
@@ -65,6 +60,7 @@ function getComicData(URL) {
     .then(function (data) {
       console.log(data);
       $(".main-content").hide();
+      $("#comic-container").empty();
       var comicCreators = [];
 
       for (let i = 0; i < data.data.results.length; i++) {
@@ -123,6 +119,7 @@ function getCharacterData(URL) {
     .then(function (data) {
       console.log(data);
       $(".main-content").hide();
+      $("#comic-container").empty();
       var comicCharacters = [];
 
       for (let i = 0; i < data.data.results.length; i++) {
