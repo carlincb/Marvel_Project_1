@@ -40,7 +40,7 @@ var md5Hash = md5(hash);
 console.log(md5Hash);
 
 let comicURL =
-  "http://gateway.marvel.com/v1/public/comics?" +
+  "https://gateway.marvel.com/v1/public/comics?" +
   "ts=" +
   ts +
   "&apikey=" +
@@ -50,11 +50,11 @@ let comicURL =
 console.log(comicURL);
 
 let characterURL =
-  "http://gateway.marvel.com/v1/public/characters?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
+  "https://gateway.marvel.com/v1/public/characters?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
 
 
 let creatorURL =
-  "http://gateway.marvel.com/v1/public/creators?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
+  "https://gateway.marvel.com/v1/public/creators?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
 // look at homework five for creating a dynamically loading page (create a separate js file)
 // create a for loop to grab everything that we want
 
@@ -62,7 +62,7 @@ var offset = 0;
 localStorage.setItem("offset", offset);
 
 function getComicData(URL) {
-  var url = "http://gateway.marvel.com/v1/public/comics?";
+  var url = "https://gateway.marvel.com/v1/public/comics?";
   localStorage.setItem("url", url);
   console.log(URL);
   fetch(URL)
@@ -135,7 +135,7 @@ function getComicData(URL) {
 }
 
 function getCharacterData(URL) {
-  var url = "http://gateway.marvel.com/v1/public/characters?";
+  var url = "https://gateway.marvel.com/v1/public/characters?";
   localStorage.setItem("url", url);
   fetch(URL)
     .then((response) => response.json())
@@ -191,7 +191,7 @@ function getCharacterData(URL) {
 };
 
 function getCreatorData(URL) {
-  var url = "http://gateway.marvel.com/v1/public/creators?";
+  var url = "https://gateway.marvel.com/v1/public/creators?";
   localStorage.setItem("url", url);
   console.log(URL);
   fetch(URL)
