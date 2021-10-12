@@ -350,4 +350,4 @@ function init() {
   RandomFact();
 }
 
-init();
+$(document).ready(init());
