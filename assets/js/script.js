@@ -4,8 +4,6 @@ var mainBodyEls = document.querySelectorAll(".main-content");
 var jQueryComicContainer = $("#comic-container");
 
 var factContainerEl = document.querySelector("#marvel-facts");
-
-
 var comicsBtn = document.querySelector(".comics-search");
 var characterBtn = document.querySelector(".characters-search");
 var creatorsBtn = document.querySelector(".creators-search");
@@ -26,7 +24,7 @@ $(".characters-search").on("click", function () {
   pages.style.display = "block";
 });
 $(".creators-search").on("click", function () {
-  getCreatorData(creatorURL);
+  getCreatorData();
   h1c.style.display = "block";
   pages.style.display = "block";
 });
@@ -43,7 +41,7 @@ var md5Hash = md5(hash);
 console.log(md5Hash);
 
 let comicURL =
-  "https://gateway.marvel.com/v1/public/comics?" +
+  "http://gateway.marvel.com/v1/public/comics?" +
   "ts=" +
   ts +
   "&apikey=" +
@@ -53,19 +51,26 @@ let comicURL =
 console.log(comicURL);
 
 let characterURL =
-  "https://gateway.marvel.com/v1/public/characters?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
-
+  "http://gateway.marvel.com/v1/public/characters?ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
 
 let creatorURL =
-  "https://gateway.marvel.com/v1/public/creators?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
-// look at homework five for creating a dynamically loading page (create a separate js file)
-// create a for loop to grab everything that we want
+  "http://gateway.marvel.com/v1/public/creators?ts=" +
+  ts +
+  "&apikey=" +
+  publicKey +
+  "&hash=" +
+  md5Hash;
 
 var offset = 0;
 localStorage.setItem("offset", offset);
 
 function getComicData(URL) {
-  var url = "https://gateway.marvel.com/v1/public/comics?";
+  var url = "http://gateway.marvel.com/v1/public/comics?";
   localStorage.setItem("url", url);
   // console.log(URL);
   fetch(URL)
@@ -91,7 +96,8 @@ function getComicData(URL) {
             creatorNames.push(creators[i].name);
           }
         }
-        var altImg = "https://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4";
+        var altImg =
+          "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4";
         if (img.length === 0) {
           comicImg.push(altImg);
         }
@@ -99,8 +105,7 @@ function getComicData(URL) {
           console.log(img[i].path);
           if (img[i].path) {
             comicImg.push(img[i].path);
-          }
-          else {
+          } else {
             comicImg.push(altImg);
           }
           console.log(comicImg);
@@ -113,13 +118,29 @@ function getComicData(URL) {
           imgpath: comicImg,
           titleURL: comics.urls[0].url,
         });
+        // console.log(titleURL);
+        // console.log(comicCreators);
       }
+      // console.log(titleURL);
       for (let k = 0; k < comicCreators.length; k++) {
         var imgString = comicCreators[k].imgpath[0] + ".jpg";
-
+        // console.log(imgString);
+        // var comicImg = document.createElement("img");
+        // comicImg.setAttribute("src", imgString);
+        // comicImg.setAttribute("alt", "Image not avalailable");
+        // var comicEl = document.createElement("h2");
+        // comicEl.textContent = "Comic Title: " + comicCreators[k].title;
+        // var idEl = document.createElement("h4");
+        // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
+        // var creatorEl = document.createElement("h4");
+        // creatorEl.textContent = "Creator(s): " + comicCreators[k].creators;
+        // var comicCardEl = document.createElement("div");
+        // comicCardEl.classList.add("box");
+        // comicCardEl.append(comicImg, comicEl, idEl, creatorEl);
+        // comicContainerEl.append(comicCardEl);
+        // comicContainerEl.classList.add("media-content", "content");
         var creatorNames = comicCreators[k].creators;
         jQueryComicContainer.append(`
-
         <a href="${comicCreators[k].titleURL}">
         <div class="box">
         <div class="media-content content">
@@ -136,7 +157,7 @@ function getComicData(URL) {
 }
 
 function getCharacterData(URL) {
-  var url = "https://gateway.marvel.com/v1/public/characters?";
+  var url = "http://gateway.marvel.com/v1/public/characters?";
   localStorage.setItem("url", url);
   fetch(URL)
     .then((response) => response.json())
@@ -158,6 +179,23 @@ function getCharacterData(URL) {
       }
       for (let k = 0; k < comicCharacters.length; k++) {
         var imgString = comicCharacters[k].imgpath + ".jpg";
+
+        // var characterImg = document.createElement('img');
+        // characterImg.setAttribute('src', imgString);
+        // characterImg.setAttribute('alt', "Image not avalailable");
+
+        // var nameEl = document.createElement('h2');
+        // nameEl.textContent = "Character Name: " + comicCharacters[k].name;
+        // var idEl = document.createElement('h4');
+        // // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
+        // var descriptionEl = document.createElement('h4');
+        // descriptionEl.textContent = "Description: " + comicCharacters[k].description;
+        // var characterCardEl = document.createElement('div');
+        // characterCardEl.classList.add('box');
+        // characterCardEl.append(characterImg, nameEl, descriptionEl);
+        // comicContainerEl.append(characterCardEl);
+        // comicContainerEl.classList.add('media-content', 'content');
+        // console.log(comicCharacters[k].titleURL);
         var description = comicCharacters[k].description;
         jQueryComicContainer.append(`
         <a href="${comicCharacters[k].titleURL}">
@@ -172,12 +210,12 @@ function getCharacterData(URL) {
         `);
       }
     });
-};
+}
 
 function getCreatorData(URL) {
-  var url = "https://gateway.marvel.com/v1/public/creators?";
+  var url = "http://gateway.marvel.com/v1/public/creators?";
+
   localStorage.setItem("url", url);
-  console.log(URL);
   fetch(URL)
     .then((response) => response.json())
     .then(function (data) {
@@ -187,45 +225,56 @@ function getCreatorData(URL) {
       var comicCreators = [];
 
       for (let i = 0; i < data.data.results.length; i++) {
-        var creators = data.data.results[i];
+        var characters = data.data.results[i];
 
         comicCreators.push({
-          name: creators.fullName,
-          imgpath: creators.thumbnail.path,
-          titleURL: creators.urls[0].url,
-
+          name: characters.name,
+          description: characters.description,
+          imgpath: characters.thumbnail.path,
+          titleURL: characters.urls[0].url,
         });
-        // storyName: creators.series.items,
       }
-      console.log(comicCreators);
+      // for (let k = 0; k < comicCharacters.length; k++) {
+      //   var imgString = comicCharacters[k].imgpath + ".jpg";
+      //   // var characterImg = document.createElement('img');
+      //   // characterImg.setAttribute('src', imgString);
+      //   // characterImg.setAttribute('alt', "Image not avalailable");
 
-      for (let k = 0; k < comicCreators.length; k++) {
-        var imgString = comicCreators[k].imgpath + ".jpg";
-        // var storyName = comicCreators[k].storyName;
-
-        jQueryComicContainer.append(`
-        <a href="${comicCreators[k].titleURL}">
-        <div class="box">
-        <div class="media-content content">
-        <img src="${imgString}" alt="Image not available"/>
-        <h4>${comicCreators[k].name}</h2>
-
-
-        </div>
-        </div>
-        </a>
-        `);
-      }
+      //   // var nameEl = document.createElement('h2');
+      //   // nameEl.textContent = "Character Name: " + comicCharacters[k].name;
+      //   // // var idEl = document.createElement('h4');
+      //   // // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
+      //   // var descriptionEl = document.createElement('h4');
+      //   // descriptionEl.textContent = "Description: " + comicCharacters[k].description;
+      //   // var characterCardEl = document.createElement('div');
+      //   // characterCardEl.classList.add('box');
+      //   // characterCardEl.append(characterImg, nameEl, descriptionEl);
+      //   // comicContainerEl.append(characterCardEl);
+      //   // comicContainerEl.classList.add('media-content', 'content');
+      //   // console.log(comicCharacters[k].titleURL);
+      //   var description = comicCharacters[k].description;
+      //   jQueryComicContainer.append(`
+      //   <a href="${comicCharacters[k].titleURL}">
+      //   <div class="box">
+      //   <div class="media-content content">
+      //   <img src="${imgString}" alt="Image not available"/>
+      //   <h2>Character Name: ${comicCharacters[k].name}</h2>
+      //   <h4 class>Description: ${description ? description : "Unavailable"}</h4>
+      //   </div>
+      //   </div>
+      //   </a>
+      //   `);
+      // }
     });
 }
-// <h3>${storyName}</h3>
-// <h2 class>Description: ${description ? description : "Unavailable"}</h4>
-// var description = comicCreators[k].description;
+
+// Need event listener for the next or previous button
 
 var nextBtn = document.querySelector("#next");
 var prevBtn = document.querySelector("#previous");
 
 $("#next").on("click", function () {
+  window.scrollTo(0,0)
   var offset = parseInt(localStorage.getItem("offset"));
   offset += 20;
   localStorage.setItem("offset", offset);
@@ -239,13 +288,16 @@ $("#next").on("click", function () {
     publicKey +
     "&hash=" +
     md5Hash;
-  if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/comics?") {
+  if (
+    localStorage.getItem("url") == "http://gateway.marvel.com/v1/public/comics?"
+  ) {
     getComicData(newUrl);
-  }
-  else if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/characters?") {
+  } else if (
+    localStorage.getItem("url") ==
+    "http://gateway.marvel.com/v1/public/characters?"
+  ) {
     getCharacterData(newUrl);
-  }
-  else {
+  } else {
     getCreatorData(newUrl);
   }
 });
@@ -264,16 +316,18 @@ $("#previous").on("click", function () {
     publicKey +
     "&hash=" +
     md5Hash;
-  if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/comics?") {
+  if (
+    localStorage.getItem("url") == "http://gateway.marvel.com/v1/public/comics?"
+  ) {
     getComicData(newUrl);
-  }
-  else if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/characters?") {
+  } else if (
+    localStorage.getItem("url") ==
+    "http://gateway.marvel.com/v1/public/characters?"
+  ) {
     getCharacterData(newUrl);
-  }
-  else {
+  } else {
     getCreatorData(newUrl);
   }
-
 });
 
 const funFactArray = [
@@ -328,9 +382,8 @@ function RandomFact() {
   factContainerEl.appendChild(h3El);
 }
 
-
 function init() {
   RandomFact();
 }
 
-$(document).ready(init());
+init();
