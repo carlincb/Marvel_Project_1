@@ -86,7 +86,6 @@ function getComicData(URL) {
         var creators = comics.creators.items;
         var img = comics.images;
         console.log("comic #" + i + ": " + creators.length);
-
         if (creators.length === 0) {
           // do something if there's no creators
         } else {
@@ -98,14 +97,17 @@ function getComicData(URL) {
             comicImg.push(img[i].path);
           }
         }
+        var titleURL = comics.urls[0].url;
         comicCreators.push({
           id: comics.id,
           title: comics.title,
           creators: creatorNames,
           imgpath: comicImg,
+          titleURL: comics.urls[0].url,
         });
+        console.log(titleURL);
       }
-
+      // console.log(titleURL);
       for (let k = 0; k < comicCreators.length; k++) {
         var imgString = comicCreators[k].imgpath[0] + ".jpg";
         console.log(imgString);
@@ -123,6 +125,17 @@ function getComicData(URL) {
         comicCardEl.append(comicImg, comicEl, idEl, creatorEl);
         comicContainerEl.append(comicCardEl);
         comicContainerEl.classList.add("media-content", "content");
+        jQueryComicContainer.append(`
+        <a href="${comicCreators[k].titleURL}">
+        <div class="box">
+        <div class="media-content content">
+        <img src="${imgString}" alt="Image not available"/>
+        <h2>Character Name: ${comicCreators[k].title}</h2>
+        <h4 class>Description: ${creatorEl ? creatorEl : "Unavailable"}</h4>
+        </div>
+        </div>
+        </a>
+        `);
       }
     });
 }
@@ -184,7 +197,9 @@ function getCharacterData(URL) {
 };
 
 function getCreatorData(URL) {
+
   var url = "http://gateway.marvel.com/v1/public/creators?";
+
   localStorage.setItem("url", url);
   fetch(URL)
     .then((response) => response.json())
