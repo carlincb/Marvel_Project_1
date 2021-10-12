@@ -13,7 +13,14 @@ main {
   height: 95vh;
 }
 nav li {
-  padding: 1rem;
+  padding: 0 10px;
+}
+
+.navbar-start {
+  position: absolute;
+  right: 10px;
+  width: 325px;
+  padding: 0px;
 }
 
 #h1a,
