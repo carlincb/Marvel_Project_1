@@ -65,7 +65,7 @@ var offset = 0;
 localStorage.setItem("offset", offset);
 
 function getComicData(URL) {
-  var url = "http://gateway.marvel.com/v1/public/comics?";
+  var url = "https://gateway.marvel.com/v1/public/comics?";
   localStorage.setItem("url", url);
   // console.log(URL);
   fetch(URL)
@@ -91,7 +91,7 @@ function getComicData(URL) {
             creatorNames.push(creators[i].name);
           }
         }
-        var altImg = "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4";
+        var altImg = "https://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4";
         if (img.length === 0) {
           comicImg.push(altImg);
         }
@@ -136,7 +136,7 @@ function getComicData(URL) {
 }
 
 function getCharacterData(URL) {
-  var url = "http://gateway.marvel.com/v1/public/characters?";
+  var url = "https://gateway.marvel.com/v1/public/characters?";
   localStorage.setItem("url", url);
   fetch(URL)
     .then((response) => response.json())
@@ -239,10 +239,10 @@ $("#next").on("click", function () {
     publicKey +
     "&hash=" +
     md5Hash;
-  if (localStorage.getItem("url") == "http://gateway.marvel.com/v1/public/comics?") {
+  if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/comics?") {
     getComicData(newUrl);
   }
-  else if (localStorage.getItem("url") == "http://gateway.marvel.com/v1/public/characters?") {
+  else if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/characters?") {
     getCharacterData(newUrl);
   }
   else {
@@ -264,10 +264,10 @@ $("#previous").on("click", function () {
     publicKey +
     "&hash=" +
     md5Hash;
-  if (localStorage.getItem("url") == "http://gateway.marvel.com/v1/public/comics?") {
+  if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/comics?") {
     getComicData(newUrl);
   }
-  else if (localStorage.getItem("url") == "http://gateway.marvel.com/v1/public/characters?") {
+  else if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/characters?") {
     getCharacterData(newUrl);
   }
   else {
