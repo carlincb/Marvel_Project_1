@@ -86,6 +86,7 @@ function getComicData(URL) {
         var creators = comics.creators.items;
         var img = comics.images;
         console.log("comic #" + i + ": " + creators.length);
+
         if (creators.length === 0) {
           // do something if there's no creators
         } else {
@@ -97,17 +98,14 @@ function getComicData(URL) {
             comicImg.push(img[i].path);
           }
         }
-        var titleURL = comics.urls[0].url;
         comicCreators.push({
           id: comics.id,
           title: comics.title,
           creators: creatorNames,
           imgpath: comicImg,
-          titleURL: comics.urls[0].url,
         });
-        console.log(titleURL);
       }
-      // console.log(titleURL);
+
       for (let k = 0; k < comicCreators.length; k++) {
         var imgString = comicCreators[k].imgpath[0] + ".jpg";
         console.log(imgString);
@@ -125,17 +123,6 @@ function getComicData(URL) {
         comicCardEl.append(comicImg, comicEl, idEl, creatorEl);
         comicContainerEl.append(comicCardEl);
         comicContainerEl.classList.add("media-content", "content");
-        jQueryComicContainer.append(`
-        <a href="${comicCreators[k].titleURL}">
-        <div class="box">
-        <div class="media-content content">
-        <img src="${imgString}" alt="Image not available"/>
-        <h2>Character Name: ${comicCreators[k].title}</h2>
-        <h4 class>Description: ${creatorEl ? creatorEl : "Unavailable"}</h4>
-        </div>
-        </div>
-        </a>
-        `);
       }
     });
 }
@@ -197,9 +184,7 @@ function getCharacterData(URL) {
 };
 
 function getCreatorData(URL) {
-
   var url = "http://gateway.marvel.com/v1/public/creators?";
-
   localStorage.setItem("url", url);
   fetch(URL)
     .then((response) => response.json())
@@ -301,7 +286,7 @@ const funFactArray = [
     fact: "The theme tune of the 1967 cartoon show Spider-Man has since become the web-slinger’s official motif including a fully orchestrated version for the MCU movies.",
   },
   {
-    fact: "Wolverine’s codename ‘Weapon X’ really means ‘Weapon 10’ and ‘Weapon 1’ is none other than… Captain America!",
+    fact: 'Wolverine’s codename "Weapon X" really means "Weapon 10" and "Weapon 1" is none other than…Captain America!',
   },
   {
     fact: 'Article 5 of the 1954 Comics Code required that: "In every instance good shall triumph over evil and the criminal punished for his misdeeds”.',
@@ -310,13 +295,13 @@ const funFactArray = [
     fact: "The original leader of Alpha Flight, Canada’s team of superheroes, is Guardian.",
   },
   {
-    fact: "In 1975 Paul McCartney composed a Marvel based song for his band Wings entitled ‘Magneto and Titanium Man’.",
+    fact: 'In 1975 Paul McCartney composed a Marvel based song for his band Wings entitled "Magneto and Titanium Man."',
   },
   {
-    fact: "Until Fantastic Four #284 founding member of the team Susan Richards (nee Storm) was known not as the Invisible Woman but the Invisible Girl.",
+    fact: "Until Fantastic Four #284 the founding member of the team, Susan Richards (nee Storm), was known not as the Invisible Woman but the Invisible Girl.",
   },
   {
-    fact: "Thor’s hammer Mjolnir  is made out of the mysterious ancient metal Uru.",
+    fact: "Thor’s hammer, Mjolnir, is made out of the mysterious ancient metal Uru.",
   },
   {
     fact: 'The real name of Iron Man’s secretary "Pepper Potts" is Virginia.',
@@ -325,10 +310,10 @@ const funFactArray = [
     fact: "In the original comics Thanos was killed by Adam Warlock.",
   },
   {
-    fact: "The British superhero team Excalibur was led by Brian Braddock aka Captain Britain.",
+    fact: "The British superhero team Excalibur was led by Brian Braddock, aka Captain Britain.",
   },
   {
-    fact: "Daredevil's long lost mother, Maggie, had in fact become a nun. ",
+    fact: "Daredevil's long lost mother, Maggie, had in fact become a nun.",
   },
   {
     fact: "The hero MoonKnight is the avatar of the Egyptian moon god Khonshu.",
