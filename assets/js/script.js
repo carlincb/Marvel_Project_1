@@ -22,11 +22,11 @@ $(".characters-search").on("click", function () {
   h1b.style.display = "block";
   pages.style.display = "block";
 });
-// $(".creators-search").on("click", function () {
-//   getCreatorData();
-//h1c.style.display = "block";
-//pages.style.display = "block";
-// });
+$(".creators-search").on("click", function () {
+  getCreatorData(creatorURL);
+  h1c.style.display = "block";
+  pages.style.display = "block";
+});
 
 var publicKey = "9a86508c139659fd39ae10d9e08ad609";
 var privateKey = "6c71587e6cb4343819fe479a9d6cb26e66e14af3";
@@ -52,6 +52,9 @@ console.log(comicURL);
 let characterURL =
   "http://gateway.marvel.com/v1/public/characters?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
 
+
+let creatorURL =
+  "http://gateway.marvel.com/v1/public/creators?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
 // look at homework five for creating a dynamically loading page (create a separate js file)
 // create a for loop to grab everything that we want
 
@@ -188,7 +191,7 @@ function getCharacterData(URL) {
 };
 
 function getCreatorData(URL) {
-  var url = "http://gateway.marvel.com/v1/public/comics?";
+  var url = "http://gateway.marvel.com/v1/public/creators?";
   localStorage.setItem("url", url);
   console.log(URL);
   fetch(URL)
@@ -199,9 +202,43 @@ function getCreatorData(URL) {
       $("#comic-container").empty();
       var comicCreators = [];
 
+      for (let i = 0; i < data.data.results.length; i++) {
+        var creators = data.data.results[i];
 
+        comicCreators.push({
+          name: creators.fullName,
+          imgpath: creators.thumbnail.path,
+          titleURL: creators.urls[0].url,
+
+        });
+        // storyName: creators.series.items,
+      }
+      console.log(comicCreators);
+
+      for (let k = 0; k < comicCreators.length; k++) {
+        var imgString = comicCreators[k].imgpath + ".jpg";
+        // var storyName = comicCreators[k].storyName;
+
+        jQueryComicContainer.append(`
+        <a href="${comicCreators[k].titleURL}">
+        <div class="box">
+        <div class="media-content content">
+        <img src="${imgString}" alt="Image not available"/>
+        <h4>${comicCreators[k].name}</h2>
+
+
+        </div>
+        </div>
+        </a>
+        `);
+      }
     });
 }
+// <h3>${storyName}</h3>
+// <h2 class>Description: ${description ? description : "Unavailable"}</h4>
+// var description = comicCreators[k].description;
+
+getCreatorData();
 // Need event listener for the next or previous button
 
 var nextBtn = document.querySelector("#next");
@@ -223,6 +260,9 @@ $("#next").on("click", function () {
     md5Hash;
   console.log(newUrl);
   getComicData(newUrl);
+  getCharacterData(newUrl);
+  getCreatorData(newUrl);
+
 });
 
 $("#previous").on("click", function () {
@@ -240,6 +280,9 @@ $("#previous").on("click", function () {
     "&hash=" +
     md5Hash;
   getComicData(newUrl);
+  getCharacterData(newUrl);
+  getCreatorData(newUrl);
+
 });
 
 const funFactArray = [
