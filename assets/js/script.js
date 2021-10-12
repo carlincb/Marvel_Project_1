@@ -1,7 +1,11 @@
 var categoryContainerEl = document.querySelector("#category-container");
 var comicContainerEl = document.querySelector("#comic-container");
 var mainBodyEls = document.querySelectorAll(".main-content");
+
+var jQueryComicContainer = $("#comic-container");
+
 var factContainerEl = document.querySelector("#marvel-facts");
+
 
 var comicsBtn = document.querySelector(".comics-search");
 var characterBtn = document.querySelector(".characters-search");
@@ -50,12 +54,7 @@ let comicURL =
 console.log(comicURL);
 
 let characterURL =
-  "http://gateway.marvel.com/v1/public/characters?ts=" +
-  ts +
-  "&apikey=" +
-  publicKey +
-  "&hash=" +
-  md5Hash;
+  "http://gateway.marvel.com/v1/public/characters?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
 
 let creatorURL =
   "http://gateway.marvel.com/v1/public/creators?ts=" +
@@ -64,9 +63,6 @@ let creatorURL =
   publicKey +
   "&hash=" +
   md5Hash;
-
-// look at homework five for creating a dynamically loading page (create a separate js file)
-// create a for loop to grab everything that we want
 
 var offset = 0;
 localStorage.setItem("offset", offset);
@@ -139,7 +135,7 @@ function getCharacterData(URL) {
     .then(function (data) {
       console.log(data);
       $(".main-content").hide();
-      $("#comic-container").empty();
+      // $("#comic-container").empty();
       var comicCharacters = [];
 
       for (let i = 0; i < data.data.results.length; i++) {
@@ -154,13 +150,14 @@ function getCharacterData(URL) {
       }
       for (let k = 0; k < comicCharacters.length; k++) {
         var imgString = comicCharacters[k].imgpath + ".jpg";
+
         // var characterImg = document.createElement('img');
         // characterImg.setAttribute('src', imgString);
         // characterImg.setAttribute('alt', "Image not avalailable");
 
         // var nameEl = document.createElement('h2');
         // nameEl.textContent = "Character Name: " + comicCharacters[k].name;
-        // // var idEl = document.createElement('h4');
+        // var idEl = document.createElement('h4');
         // // idEl.textContent = "Comic ID#: " + comicCreators[k].id;
         // var descriptionEl = document.createElement('h4');
         // descriptionEl.textContent = "Description: " + comicCharacters[k].description;
@@ -319,10 +316,7 @@ const funFactArray = [
     fact: "Daredevil's long lost mother, Maggie, had in fact become a nun. ",
   },
   {
-  fact: "The hero MoonKnight is the avatar of the Egyptian moon god Khonshu.",
-  },
-  {
-  fact: "Fact!",
+    fact: "The hero MoonKnight is the avatar of the Egyptian moon god Khonshu.",
   },
 ];
 
@@ -336,8 +330,9 @@ function RandomFact() {
   factContainerEl.appendChild(h3El);
 }
 
-function init() {
-  RandomFact();
-}
 
-init();
+// function init() {
+//   RandomFact();
+// }
+
+// init();
