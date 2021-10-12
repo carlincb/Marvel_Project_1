@@ -331,8 +331,8 @@ function RandomFact() {
 }
 
 
-// function init() {
-//   RandomFact();
-// }
+function init() {
+  RandomFact();
+}
 
-// init();
+init();
