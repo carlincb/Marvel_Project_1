@@ -222,9 +222,6 @@ function getCreatorData(URL) {
 // <h2 class>Description: ${description ? description : "Unavailable"}</h4>
 // var description = comicCreators[k].description;
 
-getCreatorData();
-// Need event listener for the next or previous button
-
 var nextBtn = document.querySelector("#next");
 var prevBtn = document.querySelector("#previous");
 
