@@ -231,9 +231,21 @@ function getCreatorData(URL) {
 // <h2 class>Description: ${description ? description : "Unavailable"}</h4>
 // var description = comicCreators[k].description;
 
-getCreatorData();
+function getCreatorData(URL){
 
-        var characters = data.data.results[i];
+var url = "https://gateway.marvel.com/v1/public/creators?";
+localStorage.setItem("url", url);
+console.log(URL);
+fetch(URL)
+  .then((response) => response.json())
+  .then(function (data) {
+    console.log(data);
+    $(".main-content").hide();
+    $("#comic-container").empty();
+    var comicCreators = [];
+
+    for (let i = 0; i < data.data.results.length; i++) {
+      var creators = data.data.results[i];
 
         comicCreators.push({
           name: characters.name,
@@ -242,11 +254,11 @@ getCreatorData();
           titleURL: characters.urls[0].url,
         });
       }
-      // for (let k = 0; k < comicCharacters.length; k++) {
-      //   var imgString = comicCharacters[k].imgpath + ".jpg";
-      //   // var characterImg = document.createElement('img');
-      //   // characterImg.setAttribute('src', imgString);
-      //   // characterImg.setAttribute('alt', "Image not avalailable");
+      for (let k = 0; k < comicCharacters.length; k++) {
+        var imgString = comicCharacters[k].imgpath + ".jpg";
+        // var characterImg = document.createElement('img');
+        // characterImg.setAttribute('src', imgString);
+        // characterImg.setAttribute('alt', "Image not avalailable");
 
       //   // var nameEl = document.createElement('h2');
       //   // nameEl.textContent = "Character Name: " + comicCharacters[k].name;
@@ -260,21 +272,21 @@ getCreatorData();
       //   // comicContainerEl.append(characterCardEl);
       //   // comicContainerEl.classList.add('media-content', 'content');
       //   // console.log(comicCharacters[k].titleURL);
-      //   var description = comicCharacters[k].description;
-      //   jQueryComicContainer.append(`
-      //   <a href="${comicCharacters[k].titleURL}">
-      //   <div class="box">
-      //   <div class="media-content content">
-      //   <img src="${imgString}" alt="Image not available"/>
-      //   <h2>Character Name: ${comicCharacters[k].name}</h2>
-      //   <h4 class>Description: ${description ? description : "Unavailable"}</h4>
-      //   </div>
-      //   </div>
-      //   </a>
-      //   `);
-      // }
+        var description = comicCharacters[k].description;
+        jQueryComicContainer.append(`
+        <a href="${comicCharacters[k].titleURL}">
+        <div class="box">
+        <div class="media-content content">
+        <img src="${imgString}" alt="Image not available"/>
+        <h2>Character Name: ${comicCharacters[k].name}</h2>
+        <h4 class>Description: ${description ? description : "Unavailable"}</h4>
+        </div>
+        </div>
+        </a>
+        `);
+      }
     });
-};
+}
 
 
 // Need event listener for the next or previous button
