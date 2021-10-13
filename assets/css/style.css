@@ -31,8 +31,7 @@ nav li {
 }
 /* Display style for Title Pages for separate pages set */
 #h1a,
-#h1b,
-#h1c {
+#h1b {
   display: none;
   text-align: center;
   position: fixed;
@@ -44,18 +43,34 @@ nav li {
   font-size: 2.75rem;
   color: white;
 }
+
+#h1c {
+  display: none;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10rem;
+  background-color: rgba(17, 17, 17);
+  font-weight: bold;
+  font-size: 2.75rem;
+  color: white;
+}
+.search-comic-form {
+  background-color: rgba(17, 17, 17, 0.637);
+}
 /* Styling for cards set */
 .card-content {
   box-shadow: 1rem 1rem 1rem rgb(230, 80, 54);
 }
 /* adding to make the cards uniform and have a scroll function */
-.comic-cards{
+.comic-cards {
   display: flex;
   float: left;
   width: 24%;
   padding: 0.5rem;
   height: 100vh;
-  margin: .5rem;
+  margin: 0.5rem;
   overflow: scroll;
 }
 
@@ -117,4 +132,3 @@ footer {
   color: rgb(230, 80, 54);
   font-size: 1.5rem;
 }
-

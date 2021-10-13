@@ -43,6 +43,17 @@
         <header>
             <h1 id="h1a">
                 Comics
+                <span">
+                    <div>
+                        <form class="search-comic-form">
+                            <div class="field">
+                                <label class="label search-label" for="comic-search">Search for a comic:</label>
+                                <input type="text" name="comic-search" id="comic-search">
+                                <button id="comic-search-btn">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </span>
             </h1>
             <h1 id="h1b">
                 Characters
@@ -65,16 +76,7 @@
                 </div>
             </div>
         </form>
-        <div>
-            <form class="search-comic-form">
-                <div class="field">
-                    <label class="label search-label" for="comic-search">Search for a comic:</label>
-                    <input type="text" name="comic-search" id="comic-search">
-                    <button id="comic-search-btn">Search</button>
-                </div>
-            </form>
-        </div>
-        
+
         <section class="columns is-centered main-content" id="category-container" style="padding: 2rem">
             <!-- Comics Card -->
             <div class="column">
@@ -161,7 +163,9 @@
             <a class="pagination-previous" id="previous">Previous</a>
             <a class="pagination-next" id="next">Next page</a>
         </section>
-        <section class="is-centered">Data provided by Marvel. © 2014 Marvel</section>
+        <section class="is-centered">
+            Data provided by Marvel. © 2014 Marvel
+        </section>
     </footer>
     <!-- Script tag for time stamp parser -->
     <script src="https://www.myersdaily.org/joseph/javascript/md5.js"></script>
