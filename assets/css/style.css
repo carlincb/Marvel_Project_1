@@ -48,10 +48,22 @@ nav li {
 .card-content {
   box-shadow: 1rem 1rem 1rem rgb(230, 80, 54);
 }
+/* adding to make the cards uniform and have a scroll function */
+.comic-cards{
+  display: flex;
+  float: left;
+  width: 24%;
+  padding: 0.5rem;
+  height: 100vh;
+  margin: .5rem;
+  overflow: scroll;
+}
+
 /* Styling for Google Search and Fun Fact set */
 .box {
+  display: flex;
   float: left;
-  width: 25%;
+  width: 24%;
   padding: 0.5rem;
 }
 /* Positioning of all smaller cards set */
@@ -101,3 +113,8 @@ footer {
   background-color: rgba(17, 17, 17);
   color: white;
 }
+.search-label {
+  color: rgb(230, 80, 54);
+  font-size: 1.5rem;
+}
+
