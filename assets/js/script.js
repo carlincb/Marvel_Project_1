@@ -9,6 +9,7 @@ var factContainerEl = document.querySelector("#marvel-facts");
 var comicsBtn = document.querySelector(".comics-search");
 var characterBtn = document.querySelector(".characters-search");
 var creatorsBtn = document.querySelector(".creators-search");
+var comicSearch = document.getElementById("comic-search")
 
 var pages = document.getElementById("pages");
 var h1a = document.getElementById("h1a");
@@ -52,26 +53,98 @@ let comicURL =
   md5Hash;
 console.log(comicURL);
 
+
 let characterURL =
   "https://gateway.marvel.com/v1/public/characters?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
 
 
 let creatorURL =
   "https://gateway.marvel.com/v1/public/creators?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
-// look at homework five for creating a dynamically loading page (create a separate js file)
-// create a for loop to grab everything that we want
 
 var offset = 0;
 localStorage.setItem("offset", offset);
 
+$('#comic-search-btn').on('click', function (event) {
+  event.preventDefault()
+let searchComicURL =   "https://gateway.marvel.com/v1/public/comics?title="+ comicSearch.value +
+"&ts=" +
+ts +
+"&apikey=" +
+publicKey +
+"&hash=" +
+md5Hash;
+
+fetch(searchComicURL)
+.then((response) => response.json())
+.then(function(data) {
+  console.log(data)
+  $(".main-content").hide();
+  $("#comic-container").empty();
+  var comicCreators = [];
+  for (let i = 0; i < data.data.results.length; i++) {
+    var comics = data.data.results[i];
+    var creatorNames = [];
+    var comicImg = [];
+    var creators = comics.creators.items;
+    var img = comics.images;
+    if (creators.length === 0) {
+      creatorNames.push("Unavailable");
+    } else {
+      // go through all the creators, and do something
+      for (let i = 0; i < creators.length; i++) {
+        creatorNames.push(creators[i].name);
+      }
+    }
+    var altImg = "https://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4";
+    if (img.length === 0) {
+      comicImg.push(altImg);
+    }
+    for (let i = 0; i < img.length; i++) {
+      console.log(img[i].path);
+      if (img[i].path) {
+        comicImg.push(img[i].path);
+      }
+      else {
+        comicImg.push(altImg);
+      }
+      console.log(comicImg);
+    }
+    var titleURL = comics.urls[0].url;
+    comicCreators.push({
+      id: comics.id,
+      title: comics.title,
+      creators: creatorNames,
+      imgpath: comicImg,
+      titleURL: comics.urls[0].url,
+    });
+  }
+  for (let k = 0; k < comicCreators.length; k++) {
+    var imgString = comicCreators[k].imgpath[0] + ".jpg";
+
+    var creatorNames = comicCreators[k].creators;
+    jQueryComicContainer.append(`
+    <a href="${comicCreators[k].titleURL}">
+    <div class="box comic-cards">
+    <div class="media-content content">
+    <img src="${imgString}" alt="Image not available"/>
+    <h2>Comic Title: ${comicCreators[k].title}</h2>
+    <h4 class>Comic ID#: ${comicCreators[k].id}</h4>
+    <h4 class>Creator(s): ${creatorNames}</h4>
+    </div>
+    </div>
+    </a>
+    `);
+  }
+});
+});
+
+
 function getComicData(URL) {
   var url = "https://gateway.marvel.com/v1/public/comics?";
   localStorage.setItem("url", url);
-  // console.log(URL);
   fetch(URL)
     .then((response) => response.json())
     .then(function (data) {
-      // console.log(data);
       $(".main-content").hide();
       $("#comic-container").empty();
       var comicCreators = [];
@@ -82,14 +155,13 @@ function getComicData(URL) {
         var comicImg = [];
         var creators = comics.creators.items;
         var img = comics.images;
-        // console.log("comic #" + i + ": " + creators.length);
+        
         if (creators.length === 0) {
           creatorNames.push("Unavailable");
         } else {
-          // go through all the creators, and do something
           for (let i = 0; i < creators.length; i++) {
             creatorNames.push(creators[i].name);
-          }
+          } 
         }
         var altImg = "https://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4";
         if (img.length === 0) {
@@ -120,7 +192,7 @@ function getComicData(URL) {
         var creatorNames = comicCreators[k].creators;
         jQueryComicContainer.append(`
         <a href="${comicCreators[k].titleURL}">
-        <div class="box">
+        <div class="box comic-cards">
         <div class="media-content content">
         <img src="${imgString}" alt="Image not available"/>
         <h2>Comic Title: ${comicCreators[k].title}</h2>
@@ -140,7 +212,6 @@ function getCharacterData(URL) {
   fetch(URL)
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data);
       $(".main-content").hide();
       $("#comic-container").empty();
       var comicCharacters = [];
@@ -160,7 +231,7 @@ function getCharacterData(URL) {
         var description = comicCharacters[k].description;
         jQueryComicContainer.append(`
         <a href="${comicCharacters[k].titleURL}">
-        <div class="box">
+        <div class="box comic-cards">
         <div class="media-content content">
         <img src="${imgString}" alt="Image not available"/>
         <h2>Character Name: ${comicCharacters[k].name}</h2>
@@ -180,7 +251,6 @@ function getCreatorData(URL) {
   fetch(URL)
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data);
       $(".main-content").hide();
       $("#comic-container").empty();
       var comicCreators = [];
@@ -192,7 +262,7 @@ function getCreatorData(URL) {
           name: creators.fullName,
           imgpath: creators.thumbnail.path,
           titleURL: creators.urls[0].url,
-
+          series: creators.series.items,
         });
         // storyName: creators.series.items,
       }
@@ -204,10 +274,10 @@ function getCreatorData(URL) {
 
         jQueryComicContainer.append(`
         <a href="${comicCreators[k].titleURL}">
-        <div class="box">
+        <div class="box comic-cards">
         <div class="media-content content">
         <img src="${imgString}" alt="Image not available"/>
-        <h4>${comicCreators[k].name}</h2>
+        <h2>${comicCreators[k].name}</h2>
         </div>
         </div>
         </a>
@@ -223,6 +293,7 @@ var nextBtn = document.querySelector("#next");
 var prevBtn = document.querySelector("#previous");
 
 $("#next").on("click", function () {
+  window.scrollTo(0,0);
   var offset = parseInt(localStorage.getItem("offset"));
   offset += 20;
   localStorage.setItem("offset", offset);
@@ -248,7 +319,11 @@ $("#next").on("click", function () {
 });
 
 $("#previous").on("click", function () {
+  window.scrollTo(0,0);
   var offset = parseInt(localStorage.getItem("offset"));
+  if (offset === 0){
+    return;
+  }
   offset -= 20;
   localStorage.setItem("offset", offset);
   var newUrl =
@@ -261,6 +336,7 @@ $("#previous").on("click", function () {
     publicKey +
     "&hash=" +
     md5Hash;
+
   if (localStorage.getItem("url") == "https://gateway.marvel.com/v1/public/comics?") {
     getComicData(newUrl);
   }

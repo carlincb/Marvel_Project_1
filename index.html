@@ -19,6 +19,9 @@
 <body class="is-fullheight-100vh">
     <nav class="navbar is-dark">
         <ul class="navbar-start">
+            <li>
+                <a href="">Home</a>
+            </li>
             <li class="comics-search">
                 Comics
             </li>
@@ -42,7 +45,7 @@
                 Creators
             </h1>
         </header>
-        <form class="box main-content" style="padding: 2rem">
+        <form class="box main-content" id="google" style="padding: 2rem">
             <div class="field">
                 <label class="label">Search for collectibles</label>
                 <div class="control">
@@ -54,6 +57,16 @@
                 </div>
             </div>
         </form>
+        <div>
+            <form class="search-comic-form">
+                <div class="field">
+                    <label class="label search-label" for="comic-search">Search for a comic:</label>
+                    <input type="text" name="comic-search" id="comic-search">
+                    <button id="comic-search-btn">Search</button>
+                </div>
+            </form>
+        </div>
+        
         <section class="columns is-centered main-content" id="category-container" style="padding: 2rem">
             <div class="column">
                 <div class="card cardBtn comics-search">
@@ -132,7 +145,7 @@
         <section class="pagination is-centered" id="pages" role="navigation" aria-label="pagination">
             <a class="pagination-previous" id="previous">Previous</a>
             <a class="pagination-next" id="next">Next page</a>
-            <ul class="pagination-list">
+            <!-- <ul class="pagination-list">
                 <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
                 <li><span class="pagination-ellipsis">&hellip;</span></li>
                 <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
@@ -140,7 +153,7 @@
                 <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
                 <li><span class="pagination-ellipsis">&hellip;</span></li>
                 <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
-            </ul>
+            </ul> -->
         </section>
         <section class="is-centered">Data provided by Marvel. © 2014 Marvel</section>
     </footer>
