@@ -25,7 +25,6 @@ var question2 = document.getElementById("question2");
 var question3 = document.getElementById("question3");
 var question4 = document.getElementById("question4");
 var question5 = document.getElementById("question5");
-var question6 = document.getElementById("question6");
 var question7 = document.getElementById("question7");
 var question8 = document.getElementById("question8");
 var question9 = document.getElementById("question9");
@@ -39,10 +38,6 @@ var question16 = document.getElementById("question16");
 var question17 = document.getElementById("question17");
 var question18 = document.getElementById("question18");
 var question19 = document.getElementById("question19");
-var question20 = document.getElementById("question20");
-var question21 = document.getElementById("question21");
-var question22 = document.getElementById("question22");
-var question23 = document.getElementById("question23");
 
 // Variables defined for button options for answers and feedback on answers.
 var btn1A = document.getElementById("option1A");
@@ -69,11 +64,6 @@ var btn5A = document.getElementById("option5A");
 var btn5B = document.getElementById("option5B");
 var btn5C = document.getElementById("option5C");
 var btn5D = document.getElementById("option5D");
-
-var btn6A = document.getElementById("option6A");
-var btn6B = document.getElementById("option6B");
-var btn6C = document.getElementById("option6C");
-var btn6D = document.getElementById("option6D");
 
 var btn7A = document.getElementById("option7A");
 var btn7B = document.getElementById("option7B");
@@ -139,31 +129,6 @@ var btn19A = document.getElementById("option19A");
 var btn19B = document.getElementById("option19B");
 var btn19C = document.getElementById("option19C");
 var btn19D = document.getElementById("option19D");
-
-var btn20A = document.getElementById("option20A");
-var btn20B = document.getElementById("option20B");
-var btn20C = document.getElementById("option20C");
-var btn20D = document.getElementById("option20D");
-
-var btn20A = document.getElementById("option21A");
-var btn20B = document.getElementById("option21B");
-var btn20C = document.getElementById("option21C");
-var btn20D = document.getElementById("option21D");
-
-var btn21A = document.getElementById("option22A");
-var btn21B = document.getElementById("option22B");
-var btn21C = document.getElementById("option22C");
-var btn21D = document.getElementById("option22D");
-
-var btn22A = document.getElementById("option23A");
-var btn22B = document.getElementById("option23B");
-var btn22C = document.getElementById("option23C");
-var btn22D = document.getElementById("option23D");
-
-var btn23A = document.getElementById("option6A");
-var btn23B = document.getElementById("option6B");
-var btn23C = document.getElementById("option6C");
-var btn23D = document.getElementById("option6D");
 
 // Right or Wrong options variable.
 var answerFeedback = document.getElementById("answerFeedback");
