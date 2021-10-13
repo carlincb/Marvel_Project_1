@@ -1,47 +1,61 @@
+// Global variables set
 var categoryContainerEl = document.querySelector("#category-container");
 var comicContainerEl = document.querySelector("#comic-container");
 var mainBodyEls = document.querySelectorAll(".main-content");
 var jQueryComicContainer = $("#comic-container");
-
 var factContainerEl = document.querySelector("#marvel-facts");
 
-
+// Variables created to grab cards and nav li tags for click events
 var comicsBtn = document.querySelector(".comics-search");
 var characterBtn = document.querySelector(".characters-search");
 var creatorsBtn = document.querySelector(".creators-search");
-
+var homeBtn = document.querySelector("#home-page");
+// Variables created for pagination and headers for new pages linked through cards
 var pages = document.getElementById("pages");
 var h1a = document.getElementById("h1a");
 var h1b = document.getElementById("h1b");
 var h1c = document.getElementById("h1c");
 
+// Functions created so that user navigates to new pages for each card and titles for the card and pagination appear on the page
 $(".comics-search").on("click", function () {
   getComicData(comicURL);
   h1a.style.display = "block";
+  h1b.style.display = "none";
+  h1c.style.display = "none";
   pages.style.display = "block";
 });
 $(".characters-search").on("click", function () {
   getCharacterData(characterURL);
   h1b.style.display = "block";
+  h1a.style.display = "none";
+  h1c.style.display = "none";
   pages.style.display = "block";
 });
 $(".creators-search").on("click", function () {
   getCreatorData(creatorURL);
   h1c.style.display = "block";
+  h1a.style.display = "none";
+  h1b.style.display = "none";
   pages.style.display = "block";
 });
-
+// Function made so that when "Home" is clicked user returns to main screen
+$("#home-page").on("click", function () {
+  location.reload();
+});
+// Creating variables for API Keys for API call
 var publicKey = "9a86508c139659fd39ae10d9e08ad609";
 var privateKey = "6c71587e6cb4343819fe479a9d6cb26e66e14af3";
 console.log(publicKey);
 console.log(privateKey);
+// Creating time stamp for API call
 var ts = Date.now();
 console.log(ts);
+// Creating hash key for API call
 var hash = ts + privateKey + publicKey;
-
 var md5Hash = md5(hash);
 console.log(md5Hash);
 
+// Creating urls for our API calls
 let comicURL =
   "https://gateway.marvel.com/v1/public/comics?" +
   "ts=" +
@@ -58,12 +72,8 @@ let characterURL =
 
 let creatorURL =
   "https://gateway.marvel.com/v1/public/creators?ts=" + ts + "&apikey=" + publicKey + "&hash=" + md5Hash;
-// look at homework five for creating a dynamically loading page (create a separate js file)
-// create a for loop to grab everything that we want
 
-var offset = 0;
-localStorage.setItem("offset", offset);
-
+// Function grabbing Comic data from API
 function getComicData(URL) {
   var url = "https://gateway.marvel.com/v1/public/comics?";
   localStorage.setItem("url", url);
@@ -134,7 +144,7 @@ function getComicData(URL) {
       }
     });
 }
-
+// Function grabbing Character data from API
 function getCharacterData(URL) {
   var url = "https://gateway.marvel.com/v1/public/characters?";
   localStorage.setItem("url", url);
@@ -174,6 +184,7 @@ function getCharacterData(URL) {
     });
 };
 
+// Function grabbing Creator data from API
 function getCreatorData(URL) {
   var url = "https://gateway.marvel.com/v1/public/creators?";
   localStorage.setItem("url", url);
@@ -195,13 +206,11 @@ function getCreatorData(URL) {
           titleURL: creators.urls[0].url,
 
         });
-        // storyName: creators.series.items,
       }
       console.log(comicCreators);
 
       for (let k = 0; k < comicCreators.length; k++) {
         var imgString = comicCreators[k].imgpath + ".jpg";
-        // var storyName = comicCreators[k].storyName;
 
         jQueryComicContainer.append(`
         <a href="${comicCreators[k].titleURL}">
@@ -218,9 +227,10 @@ function getCreatorData(URL) {
       }
     });
 }
-// <h3>${storyName}</h3>
-// <h2 class>Description: ${description ? description : "Unavailable"}</h4>
-// var description = comicCreators[k].description;
+
+// Variables and functions created to limit number of elements displayed on page and buttons added to navigate pages
+var offset = 0;
+localStorage.setItem("offset", offset);
 
 var nextBtn = document.querySelector("#next");
 var prevBtn = document.querySelector("#previous");
@@ -275,8 +285,32 @@ $("#previous").on("click", function () {
   }
 
 });
-
+// Fun Fact Array created
 const funFactArray = [
+  {
+    fact: "Los Angeles, Boston and New York City all have a Stan Lee Day, all on different dates.",
+  },
+  {
+    fact: "Stan Lee's wife Joan (nee Boocock) was a Geordie - a native of Newcastle upon Tyne.",
+  },
+  {
+    fact: "Jack Kirby worked on animated Popeye cartoons in the mid-1930s.",
+  },
+  {
+    fact: "After leaving Marvel for DC, Jack Kirby created a hero called Mark Moonrider, a villain called Darkseid, and an all-encompassing energy called the Source. He declined to sue the Star Wars creators for plagiarism, saying he only wanted recognition.",
+  },
+  {
+    fact: "While at high school, Spider-Man co-creator Steve Ditko made wooden models of German airplanes to help train World War II aircraft-spotters.",
+  },
+  {
+    fact: "The Black Panther was briefly re-named the Black Leopard, to avoid any political connotations.",
+  },
+  {
+    fact: "The US authorities can't touch Doctor Doom, however dire his deeds may be: as monarch of Latveria, he has diplomatic immunity.",
+  },
+  {
+    fact: "According to Marvel's predecessor, Timely Comics, Adolf Hitler did not commit suicide,  followed by cremation in his bunker - he was set alight by the original Human Torch.",
+  },
   {
     fact: "In the Norse Myths Thor is not blond at all but red headed with red eyes!",
   },
@@ -317,7 +351,7 @@ const funFactArray = [
     fact: "The hero MoonKnight is the avatar of the Egyptian moon god Khonshu.",
   },
 ];
-
+// Marvel Fun Fact Generator Function
 function RandomFact() {
   $("#marvel-facts").empty();
   var displayedFact =
