@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Title of Page -->
     <title>Marvel Fan Site</title>
-    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <!-- Bulma Version 0.9.0-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <!-- Font Awesome and other links for Google Search input and icon from Google API -->
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=8356d225dc8c7fed3"></script>
+    <!-- jQuery script tag -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Our personal style sheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
+<!-- Beginning of body -->
 <body class="is-fullheight-100vh">
+    <!-- Navbar -->
     <nav class="navbar is-dark">
         <ul class="navbar-start">
-            <li>
-                <a href="">Home</a>
+            <li id="home-page">
+                Home
             </li>
             <li class="comics-search">
                 Comics
@@ -33,7 +37,9 @@
             </li>
         </ul>
     </nav>
+    <!-- Beginning of Main section -->
     <main>
+        <!-- Headers for new pages once cards are clicked -->
         <header>
             <h1 id="h1a">
                 Comics
@@ -45,7 +51,9 @@
                 Creators
             </h1>
         </header>
-        <form class="box main-content" id="google" style="padding: 2rem">
+
+        <!-- Card for Google Search form and Marvel Fun Facts -->
+        <form class="box main-content" style="padding: 2rem">
             <div class="field">
                 <label class="label">Search for collectibles</label>
                 <div class="control">
@@ -68,6 +76,7 @@
         </div>
         
         <section class="columns is-centered main-content" id="category-container" style="padding: 2rem">
+            <!-- Comics Card -->
             <div class="column">
                 <div class="card cardBtn comics-search">
                     <div class="card-image">
@@ -85,6 +94,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Character Card -->
             <div class="column">
                 <div class="card characters-search">
                     <div class="card-image">
@@ -102,6 +112,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Creator Card -->
             <div class="column">
                 <div class="card creators-search">
                     <div class="card-image">
@@ -120,9 +131,11 @@
                 </div>
             </div>
         </section>
+        <!-- Marvel Quiz Card -->
         <section class="column main-content" style="padding: 2rem" id="marvelQuizDiv">
             <article class="card">
                 <div class="card-image">
+                    <!-- Quiz linked -->
                     <a href="quiz_index.html" target="_blank">
                         <figure id="Marvel-Quiz-Image">
                             <img src="assets/images/quizview.png" alt="Image of Marvel Quiz">
@@ -139,26 +152,20 @@
                 </div>
             </article>
         </section>
+        <!-- Comics container "div" or section -->
         <section id="comic-container"></section>
     </main>
+    <!-- Begin Footer -->
     <footer>
         <section class="pagination is-centered" id="pages" role="navigation" aria-label="pagination">
             <a class="pagination-previous" id="previous">Previous</a>
             <a class="pagination-next" id="next">Next page</a>
-            <!-- <ul class="pagination-list">
-                <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
-                <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-                <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
-            </ul> -->
         </section>
         <section class="is-centered">Data provided by Marvel. © 2014 Marvel</section>
     </footer>
+    <!-- Script tag for time stamp parser -->
     <script src="https://www.myersdaily.org/joseph/javascript/md5.js"></script>
+    <!-- JavaScript sheet linked -->
     <script src="./assets/js/script.js"></script>
 </body>
-
 </html>

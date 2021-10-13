@@ -2,17 +2,16 @@
 
 ## Description
 
-- We needed to create a Marvel database so that fans could find interesting facts and have fun.
-- Why did I build this project? I built this project to supplement a bigger project. We wanted to include a quiz for fans to play on the site.
-- This project presents a nice location for fans to discover more about the Marvel Universe, test their own knowledge, and search for more information.
-- This project primarily builds up skills for the developers in managining Third-Party APIs and CSS framerworks. Other skills involve: JavaScript, jQuery, Google Fonts, and GitHub branches.
+- What was our motivation? We needed to create a Marvel database so that fans could find interesting facts, collectibles, and have fun.
+- Why did we build this project? We built this project so that fans could quickly navigate to interesting data within the Marvel universe, while testing and expanding their knowledge through fun quizzes and facts or searching for interesting Marvel paraphernalia on the internet.
+- What problem does it solve? This project presents a nice location for fans to discover more about the Marvel Universe, test their own knowledge, and search for more information.
+- What did we learn? This project primarily builds up skills for the developers in managining Server Side APIs and CSS framerworks. Other skills involved: JavaScript, jQuery, Bulma, and GitHub branches.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [License](#license)
 - [Links](#links)
 
 ## Installation
@@ -21,10 +20,8 @@ Although this is simply a webpage and no installation is necessary, there were c
 
     User Story
 
-    AS A user
-
-    I WANT to view a Marvel database designed for fans of the Marvel Universe
-    SO THAT I can learn more about the Marvel Universe and buy collectibles
+    AS A user I WANT to view a Marvel database designed for fans of the Marvel Universe
+    SO THAT I can learn more about the Marvel Universe, have fun, and buy collectibles
 
     Acceptance Criteria
 
@@ -37,32 +34,38 @@ Although this is simply a webpage and no installation is necessary, there were c
     THEN I am presented with a link to a Marvel Quiz for fans to test their knowledge
     WHEN I load the initial page
     THEN I am presented with the Google Search API allowing me to search the internet for Marvel collectibles
-    WHEN I click one of the links 
-    THEN I am taken to a new page which provides links to the specified topics
-    WHEN I search for a specific topic
-    THEN I am presented with information on that topic
+    WHEN I click one of the image links
+    THEN I am taken to a new page which provides information and links to the specified topics
 
 ## Usage
+
 Please see below for examples of this webpage, which demonstrate its functionality:
 
 ### Main Page
 
-![1]()
+![1](assets/images/1.png)
+
+### Comics Page
+
+![1](assets/images/2.png)
+
+### Quiz Main Page
+
+![1](assets/images/quizview.png)
 
 ## Credits
+
+### A special thanks to Alan and Geoffrey Fimister for providing their extensive Marvel knowledge as a resource!
+
 - https://javascript.info/
 - https://jqueryui.com/
-- https://fonts.google.com/ 
 - https://unsplash.com/photos/8SeJUmfahu0
 - https://bulma.io/
-- https://developer.marvel.com/ 
+- https://developer.marvel.com/
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
-## License
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
-
 ## Links
-[Live Link]()
 
-[GitHub Link]()
+[Live Link](https://carlincb.github.io/Marvel_Project_1/)
 
+[GitHub Link](https://github.com/carlincb/Marvel_Project_1)
