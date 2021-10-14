@@ -52,7 +52,7 @@ nav li {
 .card-content {
   box-shadow: 1rem 1rem 1rem rgb(230, 80, 54);
 }
-/* adding to make the cards uniform and have a scroll function */
+/* Added functionality to make the cards uniform and have a scroll function */
 .comic-cards {
   display: flex;
   float: left;
@@ -120,4 +120,36 @@ footer {
 .search-label {
   color: rgb(230, 80, 54);
   font-size: 1.5rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1023px) {
+  nav {
+    height: 13rem;
+  }
+  nav li {
+    border-bottom: 0.1rem solid gray;
+    border-radius: 1rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .comic-cards {
+    width: 32%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .box,
+  .column,
+  #marvelQuizDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .comic-cards {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
 }
