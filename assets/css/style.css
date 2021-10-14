@@ -131,15 +131,7 @@ footer {
     border-bottom: 0.1rem solid gray;
     border-radius: 1rem;
   }
-}
 
-@media screen and (max-width: 998px) {
-  .comic-cards {
-    width: 32%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .box,
   .column,
   #marvelQuizDiv {
     display: flex;
@@ -151,5 +143,24 @@ footer {
     flex-direction: column;
     text-align: center;
     width: 100%;
+  }
+  .box {
+    display: flex;
+    flex-direction: column;
+    float: none;
+    width: 92%;
+    margin: 2.6rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .comic-cards {
+    width: 32%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .box {
+    width: 95%;
+    margin: 2rem;
   }
 }
