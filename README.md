@@ -1,4 +1,4 @@
-# Marvel_Project_1
+# Marvelisms
 
 ## Description
 
@@ -91,6 +91,6 @@ SOFTWARE.
 
 ## Links
 
-[Live Link](https://carlincb.github.io/Marvel_Project_1/)
+[Live Link](https://carlincb.github.io/Marvelisms/)
 
-[GitHub Link](https://github.com/carlincb/Marvel_Project_1)
+[GitHub Link](https://github.com/carlincb/Marvelisms)
