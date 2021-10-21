@@ -14,6 +14,7 @@
 - [Credits](#credits)
 - [License](#license)
 - [Links](#links)
+- [Contact](#contact)
 
 ## Installation
 
@@ -94,3 +95,7 @@ SOFTWARE.
 [Live Link](https://carlincb.github.io/Marvelisms/)
 
 [GitHub Link](https://github.com/carlincb/Marvelisms)
+
+## Contact
+
+Have questions? Please feel free to contact us at carlin.colleen@gmail.com.
