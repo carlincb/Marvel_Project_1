@@ -5,7 +5,7 @@
 - What was our motivation? We needed to create a Marvel database so that fans could find interesting facts, collectibles, and have fun.
 - Why did we build this project? We built this project so that fans could quickly navigate to interesting data within the Marvel universe, while testing and expanding their knowledge through fun quizzes and facts or searching for interesting Marvel paraphernalia on the internet.
 - What problem does it solve? This project presents a nice location for fans to discover more about the Marvel Universe, test their own knowledge, and search for more information.
-- What did we learn? This project primarily builds up skills for the developers in managining Server Side APIs and CSS framerworks. Other skills involved: JavaScript, jQuery, Bulma, and GitHub branches.
+- What did we learn? This project primarily builds up skills for the developers in managing Server Side APIs and CSS frameworks. Other skills involved: JavaScript, jQuery, Bulma, and GitHub branches.
 
 ## Table of Contents
 
